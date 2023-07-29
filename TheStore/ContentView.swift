@@ -8,9 +8,16 @@ struct ContentView: View {
       Image(systemName: "globe")
         .imageScale(.large)
         .foregroundStyle(.tint)
+
       Text("Hello, world!")
+      
+      TabBar()
+        .frame(
+          maxWidth: .infinity,
+          maxHeight: .infinity,
+          alignment: .bottom
+        )
     }
-    .padding()
   }
 }
 
