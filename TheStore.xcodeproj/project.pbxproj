@@ -15,6 +15,7 @@
 		B93D012F2A7502A6007A5DBA /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D012E2A7502A6007A5DBA /* Tab.swift */; };
 		B93D01322A753037007A5DBA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D01312A753037007A5DBA /* MainView.swift */; };
 		B9D40B8B2A75361F001ADAA1 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D40B8A2A75361F001ADAA1 /* CartView.swift */; };
+		B9D40B8E2A75382E001ADAA1 /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D40B8D2A75382E001ADAA1 /* HomeHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B93D012E2A7502A6007A5DBA /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		B93D01312A753037007A5DBA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B9D40B8A2A75361F001ADAA1 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		B9D40B8D2A75382E001ADAA1 /* HomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		B93D01292A750208007A5DBA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B9D40B8C2A753823001ADAA1 /* Components */,
 				B93D011D2A74FEBA007A5DBA /* HomeView.swift */,
 			);
 			path = Home;
@@ -119,6 +122,14 @@
 				B9D40B8A2A75361F001ADAA1 /* CartView.swift */,
 			);
 			path = Cart;
+			sourceTree = "<group>";
+		};
+		B9D40B8C2A753823001ADAA1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B9D40B8D2A75382E001ADAA1 /* HomeHeader.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +206,7 @@
 				B93D012C2A750231007A5DBA /* TabBar.swift in Sources */,
 				B93D011E2A74FEBA007A5DBA /* HomeView.swift in Sources */,
 				B93D011C2A74FEBA007A5DBA /* App.swift in Sources */,
+				B9D40B8E2A75382E001ADAA1 /* HomeHeader.swift in Sources */,
 				B93D01322A753037007A5DBA /* MainView.swift in Sources */,
 				B93D012F2A7502A6007A5DBA /* Tab.swift in Sources */,
 			);

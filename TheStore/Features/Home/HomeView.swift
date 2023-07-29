@@ -4,7 +4,15 @@ import SwiftUI
 
 struct HomeView: View {
   var body: some View {
-    Color.blue
+    VStack {
+      HomeHeader()
+    }
+    .frame(
+      maxWidth: .infinity,
+      maxHeight: .infinity,
+      alignment: .top
+    )
+    .padding(.vertical)
   }
 }
 
