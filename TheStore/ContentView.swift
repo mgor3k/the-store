@@ -12,6 +12,7 @@ struct ContentView: View {
       Text("Hello, world!")
       
       TabBar()
+        .padding(.bottom)
         .frame(
           maxWidth: .infinity,
           maxHeight: .infinity,

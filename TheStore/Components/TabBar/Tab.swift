@@ -8,4 +8,17 @@ enum Tab: String, Identifiable, CaseIterable {
   var id: String {
     rawValue
   }
+
+  var systemImageName: String {
+    switch self {
+    case .home:
+      "house.fill"
+    case .cart:
+      "cart.fill"
+    case .favorite:
+      "star.fill"
+    case .profile:
+      "person.fill"
+    }
+  }
 }
