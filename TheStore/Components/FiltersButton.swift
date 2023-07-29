@@ -4,16 +4,18 @@ import SwiftUI
 
 struct FiltersButton: View {
   var body: some View {
-    VStack(spacing: 0) {
-      Image(systemName: "line.3.horizontal")
-    }
-    .padding()
-    .background(
-      Color.gray.opacity(0.1)
-        .clipShape(
-          RoundedRectangle(cornerRadius: 18, style: .continuous)
-        )
-    )
+    Image(systemName: "line.3.horizontal")
+      .padding()
+      .frame(maxHeight: .infinity)
+      .background(
+        Color.gray.opacity(0.1)
+          .clipShape(
+            RoundedRectangle(
+              cornerRadius: 18,
+              style: .continuous
+            )
+          )
+      )
   }
 }
 

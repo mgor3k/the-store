@@ -13,6 +13,7 @@ struct HomeSearchBar: View {
 
       FiltersButton()
     }
+    .fixedSize(horizontal: false, vertical: true)
   }
 }
 
