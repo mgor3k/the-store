@@ -20,6 +20,7 @@ struct MainView: View {
           maxHeight: .infinity,
           alignment: .bottom
         )
+        .ignoresSafeArea(.keyboard)
     }
     .onAppear {
       UITabBar.appearance().isHidden = true

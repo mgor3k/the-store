@@ -6,6 +6,7 @@ struct HomeView: View {
   var body: some View {
     VStack {
       HomeHeader()
+      HomeSearchBar()
     }
     .frame(
       maxWidth: .infinity,
