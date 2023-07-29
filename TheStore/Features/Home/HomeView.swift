@@ -3,11 +3,15 @@
 import SwiftUI
 
 struct HomeView: View {
+  @State var searchPhrase = ""
+
   var body: some View {
-    VStack {
+    VStack(spacing: 32) {
       Group {
         HomeHeader()
-        HomeSearchBar()
+        HomeSearchBar(
+          searchPhrase: $searchPhrase
+        )
       }
       .padding(.horizontal, 24)
     }

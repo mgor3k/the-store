@@ -3,13 +3,19 @@
 import SwiftUI
 
 struct HomeSearchBar: View {
+  @Binding var searchPhrase: String
+
   var body: some View {
     HStack {
-      SearchBar()
+      SearchBar(
+        text: $searchPhrase
+      )
     }
   }
 }
 
 #Preview {
-  HomeSearchBar()
+  HomeSearchBar(
+    searchPhrase: .constant("")
+  )
 }
