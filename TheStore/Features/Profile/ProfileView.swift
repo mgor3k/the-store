@@ -2,12 +2,12 @@
 
 import SwiftUI
 
-struct CartView: View {
+struct ProfileView: View {
   var body: some View {
-    Color.red
+    Color.yellow
   }
 }
 
 #Preview {
-  CartView()
+  ProfileView()
 }

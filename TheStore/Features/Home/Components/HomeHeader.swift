@@ -14,7 +14,6 @@ struct HomeHeader: View {
         .foregroundStyle(.gray)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
-    .padding(.horizontal, 24)
   }
 }
 

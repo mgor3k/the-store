@@ -12,6 +12,12 @@ struct MainView: View {
 
       CartView()
         .tag(Tab.cart)
+
+      FavoriteView()
+        .tag(Tab.favorite)
+
+      ProfileView()
+        .tag(Tab.profile)
     }
     .overlay {
       TabBar(selectedTab: $selectedTab)

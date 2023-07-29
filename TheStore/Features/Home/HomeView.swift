@@ -5,8 +5,11 @@ import SwiftUI
 struct HomeView: View {
   var body: some View {
     VStack {
-      HomeHeader()
-      HomeSearchBar()
+      Group {
+        HomeHeader()
+        HomeSearchBar()
+      }
+      .padding(.horizontal, 24)
     }
     .frame(
       maxWidth: .infinity,
