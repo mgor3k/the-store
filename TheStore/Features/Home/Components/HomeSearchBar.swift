@@ -10,6 +10,8 @@ struct HomeSearchBar: View {
       SearchBar(
         text: $searchPhrase
       )
+
+      FiltersButton()
     }
   }
 }

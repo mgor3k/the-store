@@ -20,6 +20,7 @@
 		B9D40B932A75394E001ADAA1 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D40B922A75394E001ADAA1 /* SearchBar.swift */; };
 		B9D40B962A7539C6001ADAA1 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D40B952A7539C6001ADAA1 /* FavoriteView.swift */; };
 		B9D40B992A7539D8001ADAA1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D40B982A7539D8001ADAA1 /* ProfileView.swift */; };
+		B9D40B9B2A753E75001ADAA1 /* FiltersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D40B9A2A753E75001ADAA1 /* FiltersButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		B9D40B922A75394E001ADAA1 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		B9D40B952A7539C6001ADAA1 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		B9D40B982A7539D8001ADAA1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B9D40B9A2A753E75001ADAA1 /* FiltersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				B9D40B912A753944001ADAA1 /* SearchBar */,
 				B93D012D2A75029B007A5DBA /* TabBar */,
+				B9D40B9A2A753E75001ADAA1 /* FiltersButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				B9D40B8B2A75361F001ADAA1 /* CartView.swift in Sources */,
 				B93D012C2A750231007A5DBA /* TabBar.swift in Sources */,
 				B9D40B902A7538BE001ADAA1 /* HomeSearchBar.swift in Sources */,
+				B9D40B9B2A753E75001ADAA1 /* FiltersButton.swift in Sources */,
 				B93D011E2A74FEBA007A5DBA /* HomeView.swift in Sources */,
 				B93D011C2A74FEBA007A5DBA /* App.swift in Sources */,
 				B9D40B932A75394E001ADAA1 /* SearchBar.swift in Sources */,

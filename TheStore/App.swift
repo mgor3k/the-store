@@ -7,6 +7,7 @@ struct TheStoreApp: App {
   var body: some Scene {
     WindowGroup {
       MainView()
+        .tint(.orange)
     }
   }
 }
