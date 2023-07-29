@@ -2,28 +2,31 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct MainView: View {
   @State var selectedTab: Tab = .home
 
   var body: some View {
-    VStack {
-      Image(systemName: "globe")
-        .imageScale(.large)
-        .foregroundStyle(.tint)
+    TabView(selection: $selectedTab) {
+      HomeView()
+        .tag(Tab.home)
 
-      Text("Hello, world!")
-      
+      CartView()
+        .tag(Tab.cart)
+    }
+    .overlay {
       TabBar(selectedTab: $selectedTab)
-        .padding(.bottom)
         .frame(
           maxWidth: .infinity,
           maxHeight: .infinity,
           alignment: .bottom
         )
     }
+    .onAppear {
+      UITabBar.appearance().isHidden = true
+    }
   }
 }
 
 #Preview {
-  HomeView()
+  MainView()
 }

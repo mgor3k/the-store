@@ -31,13 +31,16 @@ struct TabBar: View {
             .snappy(duration: 0.3),
             value: selectedTab
           )
+          .frame(maxWidth: .infinity)
+          .contentShape(Circle())
           .onTapGesture {
             selectedTab = tab
+            print("### tab \(tab.rawValue)")
           }
-          .frame(maxWidth: .infinity)
       }
     }
-    .padding(.horizontal)
+    .padding()
+    .background(Color.white)
   }
 }
 
