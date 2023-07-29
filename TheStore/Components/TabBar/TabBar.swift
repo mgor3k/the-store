@@ -35,7 +35,6 @@ struct TabBar: View {
           .contentShape(Circle())
           .onTapGesture {
             selectedTab = tab
-            print("### tab \(tab.rawValue)")
           }
       }
     }
