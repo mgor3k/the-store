@@ -38,7 +38,9 @@
 				B93D011A2A74FEBA007A5DBA /* TheStore */,
 				B93D01192A74FEBA007A5DBA /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		B93D01192A74FEBA007A5DBA /* Products */ = {
 			isa = PBXGroup;
