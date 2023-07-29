@@ -7,7 +7,7 @@ struct TabBar: View {
 
   var tabs = Tab.allCases
 
-  @State var selectedTab: Tab = .home
+  @Binding var selectedTab: Tab
 
   var body: some View {
     HStack {
@@ -42,5 +42,7 @@ struct TabBar: View {
 }
 
 #Preview {
-  TabBar()
+  TabBar(
+    selectedTab: .constant(.home)
+  )
 }

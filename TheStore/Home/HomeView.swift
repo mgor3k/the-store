@@ -3,6 +3,8 @@
 import SwiftUI
 
 struct HomeView: View {
+  @State var selectedTab: Tab = .home
+
   var body: some View {
     VStack {
       Image(systemName: "globe")
@@ -11,7 +13,7 @@ struct HomeView: View {
 
       Text("Hello, world!")
       
-      TabBar()
+      TabBar(selectedTab: $selectedTab)
         .padding(.bottom)
         .frame(
           maxWidth: .infinity,
