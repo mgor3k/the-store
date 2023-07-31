@@ -4,9 +4,12 @@ import SwiftUI
 
 struct HomeView: View {
   @State var searchPhrase = ""
+  @State var selectedCategory: Category = .all
+
+  let categories = Category.allCases
 
   var body: some View {
-    VStack(spacing: 32) {
+    VStack(spacing: 28) {
       Group {
         HomeHeader()
         HomeSearchBar(
@@ -14,6 +17,15 @@ struct HomeView: View {
         )
       }
       .padding(.horizontal, 24)
+
+      HorizontalScrollMenu(
+        items: categories,
+        title: \.title,
+        selectedItem: $selectedCategory
+      )
+      .frame(height: 32)
+
+      Spacer()
     }
     .frame(
       maxWidth: .infinity,
