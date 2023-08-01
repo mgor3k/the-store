@@ -5,6 +5,7 @@ import SwiftUI
 struct HomeView: View {
   @State var searchPhrase = ""
   @State var selectedCategory: Category = .all
+  @State var products: [Product] = Product.mock
 
   let categories = Category.allCases
 
@@ -24,6 +25,13 @@ struct HomeView: View {
         selectedItem: $selectedCategory
       )
       .frame(height: 32)
+
+      LazyVStack {
+        ForEach(products) { product in
+          HomeProduct(product: product)
+        }
+      }
+      .padding(.horizontal, 24)
 
       Spacer()
     }
