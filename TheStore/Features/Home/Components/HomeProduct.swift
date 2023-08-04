@@ -7,8 +7,26 @@ struct HomeProduct: View {
 
   var body: some View {
     HStack(spacing: 8) {
-      Color.blue
-        .frame(height: 120)
+      GeometryReader { proxy in
+        Color.color1Accent
+          .clipShape(
+            RoundedRectangle(
+              cornerRadius: 12,
+              style: .continuous
+            )
+          )
+          .rotationEffect(.degrees(-15))
+          .frame(
+            width: proxy.size.width / 2.5,
+            height: 90
+          )
+          .padding()
+          .frame(
+            width: proxy.size.width,
+            height: proxy.size.height,
+            alignment: .center
+          )
+      }
 
       VStack(alignment: .leading, spacing: 16) {
         VStack(alignment: .leading) {
@@ -28,7 +46,7 @@ struct HomeProduct: View {
       Spacer()
     }
     .frame(height: 180)
-    .background(Color.red)
+    .background(Color.color1)
     .clipShape(
       RoundedRectangle(
         cornerRadius: 28,
