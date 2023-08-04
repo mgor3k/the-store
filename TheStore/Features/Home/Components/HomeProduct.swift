@@ -8,7 +8,7 @@ struct HomeProduct: View {
   var body: some View {
     HStack(spacing: 8) {
       Color.blue
-        .frame(width: 120, height: 120)
+        .frame(height: 120)
 
       VStack(alignment: .leading, spacing: 16) {
         VStack(alignment: .leading) {
@@ -31,17 +31,30 @@ struct HomeProduct: View {
     .background(Color.red)
     .clipShape(
       RoundedRectangle(
-        cornerRadius: 24,
+        cornerRadius: 28,
         style: .continuous
       )
     )
+    .overlay(alignment: .topLeading) {
+      Button(action: {}) {
+        Image(systemName: product.isLiked ? "heart.fill" : "heart")
+          .font(.caption)
+          .padding(6)
+          .background(Color.white)
+          .clipShape(Circle())
+      }
+      .padding(.vertical, 14)
+      .padding(.horizontal, 12)
+    }
   }
 }
 
 #Preview {
   HomeProduct(
     product: .init(
-      id: "1", name: "test"
+      id: "1",
+      name: "test",
+      isLiked: true
     )
   )
 }
