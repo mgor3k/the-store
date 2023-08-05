@@ -50,9 +50,19 @@ struct HomeProduct: View {
 
           Spacer()
 
-          PriceView()
+          HStack {
+            PriceView()
+
+            Spacer()
+
+            Button(action: {}) {
+              Text("Buy")
+            }
+            .buttonStyle(.primary)
+          }
         }
-        .padding(24)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 24)
         .frame(
           maxWidth: .infinity,
           maxHeight: .infinity,
