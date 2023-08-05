@@ -31,24 +31,33 @@ struct HomeProduct: View {
         }
         .frame(width: proxy.size.width * 0.4)
 
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 0) {
           VStack(alignment: .leading) {
             Text(product.name)
-              .font(.title3)
+              .font(.callout)
+              .bold()
 
             Text("by nike")
-              .font(.callout)
+              .font(.caption)
               .foregroundStyle(.secondary)
           }
+          .padding(.bottom, 16)
+
+          Text("Your workhorse with wing returns.")
+            .font(.caption)
+            .foregroundStyle(.secondary)
+            .multilineTextAlignment(.leading)
 
           Spacer()
 
-          Text("Your workhorse with wing returns.")
-            .font(.callout)
-            .foregroundStyle(.secondary)
+          PriceView()
         }
         .padding(24)
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(
+          maxWidth: .infinity,
+          maxHeight: .infinity,
+          alignment: .topLeading
+        )
       }
       .background(Color.color1)
       .clipShape(
