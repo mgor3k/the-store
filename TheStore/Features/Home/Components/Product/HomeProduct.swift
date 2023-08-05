@@ -19,9 +19,9 @@ struct HomeProduct: View {
             .rotationEffect(.degrees(-15))
             .frame(
               width: proxy.size.width * 0.5,
-              height: 80
+              height: 90
             )
-            .offset(x: 16, y: -8)
+            .offset(x: 16)
             .padding()
             .frame(
               width: proxy.size.width,
@@ -30,6 +30,12 @@ struct HomeProduct: View {
             )
         }
         .frame(width: proxy.size.width * 0.4)
+        .overlay {
+          Image(.nike1)
+            .resizable()
+            .scaledToFit()
+            .offset(x: 16, y: 12)
+        }
 
         VStack(alignment: .leading, spacing: 0) {
           VStack(alignment: .leading) {
