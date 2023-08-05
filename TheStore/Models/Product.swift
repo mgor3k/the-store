@@ -13,7 +13,8 @@ struct Product: Identifiable {
 
 extension Product {
   static let mock: [Self] = [
-    .init(id: "1", name: "Product 1", hexColor: "#FFD9D8", isLiked: true),
-    .init(id: "2", name: "Product 2", hexColor: "#DBE3E6", isLiked: false)
+    .init(id: "1", name: "Nike Air Pegasus", hexColor: "#FFD9D8", isLiked: true),
+    .init(id: "2", name: "Nike ZoomX", hexColor: "#DBE3E6", isLiked: false),
+    .init(id: "3", name: "Nike Air Jordan", hexColor: "#FFD9D8", isLiked: false)
   ]
 }

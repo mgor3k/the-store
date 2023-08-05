@@ -10,37 +10,48 @@ struct HomeView: View {
   let categories = Category.allCases
 
   var body: some View {
-    VStack(spacing: 28) {
-      Group {
-        HomeHeader()
-        HomeSearchBar(
-          searchPhrase: $searchPhrase
-        )
-      }
-      .padding(.horizontal, 24)
+    ScrollView {
+      LazyVStack(spacing: 24, pinnedViews: [.sectionHeaders]) {
+        Group {
+          HomeHeader()
+          HomeSearchBar(
+            searchPhrase: $searchPhrase
+          )
+        }
+        .padding(.horizontal, 24)
 
-      HorizontalScrollMenu(
-        items: categories,
-        title: \.title,
-        selectedItem: $selectedCategory
-      )
-      .frame(height: 32)
-
-      LazyVStack(spacing: 24) {
-        ForEach(products) { product in
-          HomeProduct(product: product)
+        Section {
+          ForEach(products) { product in
+            HomeProduct(product: product)
+              .padding(.horizontal, 24)
+              .padding(.top, isFirst(product) ? -8 : 0)
+              .padding(.bottom, isLast(product) ? 24 : 0)
+          }
+        } header: {
+          categoriesMenu
         }
       }
-      .padding(.horizontal, 24)
-
-      Spacer()
     }
-    .frame(
-      maxWidth: .infinity,
-      maxHeight: .infinity,
-      alignment: .top
-    )
     .padding(.vertical)
+  }
+
+  var categoriesMenu: some View {
+    HorizontalScrollMenu(
+      items: categories,
+      title: \.title,
+      selectedItem: $selectedCategory
+    )
+    .frame(height: 32)
+    .padding(.bottom, 8)
+    .background(Color.white)
+  }
+
+  func isFirst(_ product: Product) -> Bool {
+    (products.firstIndex(where: { $0.id == product.id }) ?? 0) == 0
+  }
+
+  func isLast(_ product: Product) -> Bool {
+    (products.firstIndex(where: { $0.id == product.id }) ?? 0) == products.count - 1
   }
 }
 
