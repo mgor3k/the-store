@@ -12,6 +12,7 @@ struct PrimaryButtonStyle: ButtonStyle {
       .padding(.horizontal, 16)
       .background(Color.secondaryAccent)
       .clipShape(Capsule())
+      .opacity(configuration.isPressed ? 0.5 : 1)
   }
 }
 
