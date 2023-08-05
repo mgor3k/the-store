@@ -9,7 +9,7 @@ struct HomeProduct: View {
     GeometryReader { proxy in
       HStack(spacing: 8) {
         GeometryReader { proxy in
-          Color.color1Accent
+          Color(hex: product.hexColor)
             .clipShape(
               RoundedRectangle(
                 cornerRadius: 12,
@@ -19,9 +19,9 @@ struct HomeProduct: View {
             .rotationEffect(.degrees(-15))
             .frame(
               width: proxy.size.width * 0.5,
-              height: 100
+              height: 80
             )
-            .offset(x: 16)
+            .offset(x: 16, y: -8)
             .padding()
             .frame(
               width: proxy.size.width,
@@ -69,7 +69,10 @@ struct HomeProduct: View {
           alignment: .topLeading
         )
       }
-      .background(Color.color1)
+      .background(
+        Color(hex: product.hexColor)
+          .opacity(0.5)
+      )
       .clipShape(
         RoundedRectangle(
           cornerRadius: 28,
@@ -97,6 +100,7 @@ struct HomeProduct: View {
     product: .init(
       id: "1",
       name: "test",
+      hexColor: "DBE3E6",
       isLiked: true
     )
   )

@@ -26,7 +26,7 @@ struct HomeView: View {
       )
       .frame(height: 32)
 
-      LazyVStack {
+      LazyVStack(spacing: 24) {
         ForEach(products) { product in
           HomeProduct(product: product)
         }
