@@ -13,7 +13,7 @@ struct HomeView: View {
     ScrollView {
       LazyVStack(spacing: 24, pinnedViews: [.sectionHeaders]) {
         Group {
-          Header()
+          HeaderView()
           SearchView(
             searchPhrase: $searchPhrase
           )
