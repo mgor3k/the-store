@@ -8,7 +8,7 @@ struct Product: Identifiable {
 
   let hexColor: String
 
-  var isLiked: Bool
+  let isLiked: Bool
 }
 
 extension Product {
