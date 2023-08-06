@@ -87,22 +87,12 @@ struct HomeProduct: View {
         )
       )
       .overlay(alignment: .topLeading) {
-        Button(action: toggleLike) {
-          Image(systemName: product.isLiked ? "heart.fill" : "heart")
-            .font(.caption)
-            .padding(6)
-            .background(Color.white)
-            .clipShape(Circle())
-        }
-        .padding(.vertical, 14)
-        .padding(.horizontal, 12)
+        LikeButton(product: product)
+          .padding(.vertical, 14)
+          .padding(.horizontal, 12)
       }
     }
     .frame(height: 180)
-  }
-
-  func toggleLike() {
-    store.toggleLike(product)
   }
 }
 
