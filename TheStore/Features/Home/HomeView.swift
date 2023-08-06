@@ -11,7 +11,7 @@ struct HomeView: View {
 
   var body: some View {
     ScrollView {
-      LazyVStack(spacing: 24, pinnedViews: [.sectionHeaders]) {
+      VStack(spacing: 24) {
         Group {
           HeaderView()
           SearchView(
@@ -20,15 +20,17 @@ struct HomeView: View {
         }
         .padding(.horizontal, 24)
 
-        Section {
-          ForEach(store.products) { product in
-            HomeProduct(product: product)
-              .padding(.horizontal, 24)
-              .padding(.top, isFirst(product) ? -8 : 0)
-              .padding(.bottom, isLast(product) ? 24 : 0)
+        LazyVStack(spacing: 24, pinnedViews: [.sectionHeaders]) {
+          Section {
+            ForEach(store.products) { product in
+              HomeProduct(product: product)
+                .padding(.horizontal, 24)
+                .padding(.top, isFirst(product) ? -8 : 0)
+                .padding(.bottom, isLast(product) ? 24 : 0)
+            }
+          } header: {
+            categoriesMenu
           }
-        } header: {
-          categoriesMenu
         }
       }
     }
