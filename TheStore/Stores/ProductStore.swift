@@ -15,6 +15,14 @@ final class ProductStore: ObservableObject {
     self.provider = provider
   }
 
+  func isFirst(_ product: Product) -> Bool {
+    (products.firstIndex(where: { $0.id == product.id }) ?? -1) == 0
+  }
+
+  func isLast(_ product: Product) -> Bool {
+    (products.firstIndex(where: { $0.id == product.id }) ?? -1) == products.count - 1
+  }
+
   func toggleLike(_ product: Product) {
     guard let index = products.firstIndex(where: { $0.id == product.id }) else { return }
 

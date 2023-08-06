@@ -25,8 +25,8 @@ struct HomeView: View {
             ForEach(store.products) { product in
               HomeProduct(product: product)
                 .padding(.horizontal, 24)
-                .padding(.top, isFirst(product) ? -8 : 0)
-                .padding(.bottom, isLast(product) ? 24 : 0)
+                .padding(.top, store.isFirst(product) ? -8 : 0)
+                .padding(.bottom, store.isLast(product) ? 24 : 0)
             }
           } header: {
             categoriesMenu
@@ -46,14 +46,6 @@ struct HomeView: View {
     .frame(height: 32)
     .padding(.bottom, 8)
     .background(Color.white)
-  }
-
-  func isFirst(_ product: Product) -> Bool {
-    (store.products.firstIndex(where: { $0.id == product.id }) ?? 0) == 0
-  }
-
-  func isLast(_ product: Product) -> Bool {
-    (store.products.firstIndex(where: { $0.id == product.id }) ?? 0) == store.products.count - 1
   }
 }
 
