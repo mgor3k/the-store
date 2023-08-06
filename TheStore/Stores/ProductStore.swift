@@ -27,7 +27,14 @@ final class ProductStore: ObservableObject {
     guard let index = products.firstIndex(where: { $0.id == product.id }) else { return }
 
     let isLiked = product.isLiked
-    let tempProduct = Product(id: product.id, name: product.name, hexColor: product.hexColor, isLiked: !isLiked)
+
+    let tempProduct = Product(
+      id: product.id,
+      name: product.name,
+      hexColor: product.hexColor,
+      image: product.image,
+      isLiked: !isLiked
+    )
 
     products[index] = tempProduct
 

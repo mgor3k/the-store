@@ -19,6 +19,8 @@
 		B93D01322A753037007A5DBA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D01312A753037007A5DBA /* MainView.swift */; };
 		B9C9AA3A2A7FAE8100BFC2AA /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C9AA392A7FAE8100BFC2AA /* ProductStore.swift */; };
 		B9C9AA3C2A7FB17300BFC2AA /* ProductProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C9AA3B2A7FB17300BFC2AA /* ProductProvider.swift */; };
+		B9C9AA402A7FC11800BFC2AA /* DynamicImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C9AA3F2A7FC11800BFC2AA /* DynamicImage.swift */; };
+		B9C9AA422A7FC13000BFC2AA /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C9AA412A7FC13000BFC2AA /* ImageType.swift */; };
 		B9D40B8B2A75361F001ADAA1 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D40B8A2A75361F001ADAA1 /* CartView.swift */; };
 		B9D40B8E2A75382E001ADAA1 /* HomeView+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D40B8D2A75382E001ADAA1 /* HomeView+Header.swift */; };
 		B9D40B902A7538BE001ADAA1 /* HomeView+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D40B8F2A7538BE001ADAA1 /* HomeView+Search.swift */; };
@@ -46,6 +48,8 @@
 		B93D01312A753037007A5DBA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B9C9AA392A7FAE8100BFC2AA /* ProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
 		B9C9AA3B2A7FB17300BFC2AA /* ProductProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductProvider.swift; sourceTree = "<group>"; };
+		B9C9AA3F2A7FC11800BFC2AA /* DynamicImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicImage.swift; sourceTree = "<group>"; };
+		B9C9AA412A7FC13000BFC2AA /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
 		B9D40B8A2A75361F001ADAA1 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		B9D40B8D2A75382E001ADAA1 /* HomeView+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+Header.swift"; sourceTree = "<group>"; };
 		B9D40B8F2A7538BE001ADAA1 /* HomeView+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+Search.swift"; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 			children = (
 				B91973612A784F8B00D1703A /* Category.swift */,
 				B9F7C89B2A795EAB00E3F9F7 /* Product.swift */,
+				B9C9AA412A7FC13000BFC2AA /* ImageType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				B93D012D2A75029B007A5DBA /* TabBar */,
 				B9D40B9C2A75A081001ADAA1 /* FiltersButton.swift */,
 				B919735E2A784D2800D1703A /* HorizontalScrollMenu.swift */,
+				B9C9AA3F2A7FC11800BFC2AA /* DynamicImage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 				B9D40B902A7538BE001ADAA1 /* HomeView+Search.swift in Sources */,
 				B9D40B9D2A75A081001ADAA1 /* FiltersButton.swift in Sources */,
 				B93D011E2A74FEBA007A5DBA /* HomeView.swift in Sources */,
+				B9C9AA402A7FC11800BFC2AA /* DynamicImage.swift in Sources */,
 				B9397D262A7E6EB80004B781 /* Color+Hex.swift in Sources */,
 				B9F7C89E2A795F9600E3F9F7 /* HomeProduct.swift in Sources */,
 				B9D7E9AB2A7E46360042E7C7 /* HomeProduct+Price.swift in Sources */,
@@ -322,6 +329,7 @@
 				B9D40B932A75394E001ADAA1 /* SearchBar.swift in Sources */,
 				B9D40B8E2A75382E001ADAA1 /* HomeView+Header.swift in Sources */,
 				B93D01322A753037007A5DBA /* MainView.swift in Sources */,
+				B9C9AA422A7FC13000BFC2AA /* ImageType.swift in Sources */,
 				B919735F2A784D2800D1703A /* HorizontalScrollMenu.swift in Sources */,
 				B9C9AA3A2A7FAE8100BFC2AA /* ProductStore.swift in Sources */,
 				B9D40B962A7539C6001ADAA1 /* FavoriteView.swift in Sources */,

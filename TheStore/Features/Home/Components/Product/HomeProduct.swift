@@ -33,10 +33,9 @@ struct HomeProduct: View {
         }
         .frame(width: proxy.size.width * 0.4)
         .overlay {
-          Image(.nike1)
-            .resizable()
-            .scaledToFit()
+          DynamicImage(imageType: product.image)
             .offset(x: 16, y: 12)
+            .padding(12)
         }
 
         VStack(alignment: .leading, spacing: 0) {
@@ -109,12 +108,7 @@ struct HomeProduct: View {
 
 #Preview {
   HomeProduct(
-    product: .init(
-      id: "1",
-      name: "test",
-      hexColor: "DBE3E6",
-      isLiked: true
-    )
+    product: Product.mock[0]
   )
   .environmentObject(ProductStore())
 }

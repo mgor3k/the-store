@@ -15,6 +15,7 @@ extension ProductProvider {
           id: product.id,
           name: product.name,
           hexColor: product.hexColor,
+          image: product.image,
           isLiked: true
         )
       },
@@ -23,6 +24,7 @@ extension ProductProvider {
           id: product.id,
           name: product.name,
           hexColor: product.hexColor,
+          image: product.image,
           isLiked: false
         )
       }
