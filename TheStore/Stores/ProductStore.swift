@@ -3,16 +3,42 @@
 import Foundation
 
 final class ProductStore: ObservableObject {
-  @Published var products: [Product] = Product.mock
+  @Published var products: [Product]
+
+  private let provider: ProductProvider
+
+  init(
+    products: [Product] = Product.mock,
+    provider: ProductProvider = .inMemory
+  ) {
+    self.products = products
+    self.provider = provider
+  }
 
   func toggleLike(_ product: Product) {
-    var isLiked = product.isLiked
-    isLiked.toggle()
+    guard let index = products.firstIndex(where: { $0.id == product.id }) else { return }
 
-    let newProduct = Product(id: product.id, name: product.name, hexColor: product.hexColor, isLiked: isLiked)
+    let isLiked = product.isLiked
+    let tempProduct = Product(id: product.id, name: product.name, hexColor: product.hexColor, isLiked: !isLiked)
 
-    let index = products.firstIndex(where: { $0.id == product.id }) ?? 0
+    products[index] = tempProduct
 
-    products[index] = newProduct
+    Task {
+      do {
+        let newProduct = try await isLiked
+        ? provider.unlike(product)
+        : provider.like(product)
+
+        await MainActor.run {
+          products[index] = newProduct
+        }
+      } catch {
+        // TODO: Error handling
+        // Revert to original state, show error, or whatever
+        await MainActor.run {
+          products[index] = product
+        }
+      }
+    }
   }
 }
