@@ -3,6 +3,8 @@
 import SwiftUI
 
 struct HomeProduct: View {
+  @EnvironmentObject var store: ProductStore
+
   let product: Product
 
   var body: some View {
@@ -86,7 +88,7 @@ struct HomeProduct: View {
         )
       )
       .overlay(alignment: .topLeading) {
-        Button(action: {}) {
+        Button(action: toggleLike) {
           Image(systemName: product.isLiked ? "heart.fill" : "heart")
             .font(.caption)
             .padding(6)
@@ -99,6 +101,10 @@ struct HomeProduct: View {
     }
     .frame(height: 180)
   }
+
+  func toggleLike() {
+    store.toggleLike(product)
+  }
 }
 
 #Preview {
@@ -110,4 +116,5 @@ struct HomeProduct: View {
       isLiked: true
     )
   )
+  .environmentObject(ProductStore())
 }

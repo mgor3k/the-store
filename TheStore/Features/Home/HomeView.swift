@@ -5,7 +5,7 @@ import SwiftUI
 struct HomeView: View {
   @State var searchPhrase = ""
   @State var selectedCategory: Category = .all
-  @State var products: [Product] = Product.mock
+  @EnvironmentObject var store: ProductStore
 
   let categories = Category.allCases
 
@@ -21,7 +21,7 @@ struct HomeView: View {
         .padding(.horizontal, 24)
 
         Section {
-          ForEach(products) { product in
+          ForEach(store.products) { product in
             HomeProduct(product: product)
               .padding(.horizontal, 24)
               .padding(.top, isFirst(product) ? -8 : 0)
@@ -47,14 +47,15 @@ struct HomeView: View {
   }
 
   func isFirst(_ product: Product) -> Bool {
-    (products.firstIndex(where: { $0.id == product.id }) ?? 0) == 0
+    (store.products.firstIndex(where: { $0.id == product.id }) ?? 0) == 0
   }
 
   func isLast(_ product: Product) -> Bool {
-    (products.firstIndex(where: { $0.id == product.id }) ?? 0) == products.count - 1
+    (store.products.firstIndex(where: { $0.id == product.id }) ?? 0) == store.products.count - 1
   }
 }
 
 #Preview {
   HomeView()
+    .environmentObject(ProductStore())
 }

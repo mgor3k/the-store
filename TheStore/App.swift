@@ -8,6 +8,7 @@ struct TheStoreApp: App {
     WindowGroup {
       MainView()
         .tint(.orange)
+        .environmentObject(ProductStore())
     }
   }
 }
