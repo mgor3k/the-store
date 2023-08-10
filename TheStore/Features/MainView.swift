@@ -3,12 +3,18 @@
 import SwiftUI
 
 struct MainView: View {
+  @Namespace var namespace
+
   @State var selectedTab: Tab = .home
+  @State var selectedProduct: Product?
 
   var body: some View {
     TabView(selection: $selectedTab) {
-      HomeCoordinator()
-        .tag(Tab.home)
+      HomeView(
+        namespace: namespace,
+        selectedProduct: $selectedProduct
+      )
+      .tag(Tab.home)
 
       CartView()
         .tag(Tab.cart)
@@ -28,6 +34,21 @@ struct MainView: View {
         )
         .ignoresSafeArea(.keyboard)
     }
+    .overlay {
+      if let selectedProduct {
+        DetailsView(
+          namespace: namespace,
+          product: selectedProduct,
+          onBackTapped: {
+            self.selectedProduct = nil
+          }
+        )
+      }
+    }
+    .animation(
+      .snappy.speed(1.35),
+      value: selectedProduct
+    )
   }
 }
 
