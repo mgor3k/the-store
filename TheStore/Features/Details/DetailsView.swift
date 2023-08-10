@@ -3,6 +3,8 @@
 import SwiftUI
 
 struct DetailsView: View {
+  @State private var hasAppeared = false
+
   let namespace: Namespace.ID
 
   let product: Product
@@ -37,16 +39,25 @@ struct DetailsView: View {
             )
         )
         .overlay(alignment: .topLeading) {
-          Button(action: onBackTapped) {
-            Image(systemName: "arrow.left")
-              .foregroundStyle(.black)
-              .padding(24)
+          ZStack {
+            if hasAppeared {
+              Button(action: onBackTapped) {
+                Image(systemName: "arrow.left")
+                  .foregroundStyle(.black)
+                  .padding(24)
+              }
+              .transition(.scale)
+            }
           }
+          .animation(.snappy.delay(0.3), value: hasAppeared)
         }
         .padding()
 
         Spacer()
       }
+    }
+    .onAppear {
+      hasAppeared = true
     }
   }
 }
