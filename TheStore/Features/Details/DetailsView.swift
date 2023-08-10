@@ -15,7 +15,7 @@ struct DetailsView: View {
     ZStack {
       Color.white.ignoresSafeArea()
 
-      VStack {
+      VStack(alignment: .leading) {
         DynamicImage(
           imageType: product.image
         )
@@ -51,10 +51,18 @@ struct DetailsView: View {
           }
           .animation(.snappy.delay(0.3), value: hasAppeared)
         }
-        .padding()
+
+        if hasAppeared {
+          Text(product.name)
+            .font(.title)
+            .bold()
+            .padding()
+            .transition(.slide)
+        }
 
         Spacer()
       }
+      .padding()
     }
     .onAppear {
       hasAppeared = true
