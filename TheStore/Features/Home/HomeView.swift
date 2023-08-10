@@ -9,6 +9,9 @@ struct HomeView: View {
 
   let categories = Category.allCases
 
+  let namespace: Namespace.ID
+  @Binding var selectedProduct: Product?
+
   var body: some View {
     ScrollView {
       VStack(spacing: 24) {
@@ -23,7 +26,13 @@ struct HomeView: View {
         LazyVStack(spacing: 24, pinnedViews: [.sectionHeaders]) {
           Section {
             ForEach(store.products) { product in
-              HomeProduct(product: product)
+              HomeProduct(
+                namespace: namespace,
+                product: product,
+                onBuyTapped: {
+                  selectedProduct = product
+                }
+              )
                 .padding(.horizontal, 24)
                 .padding(.top, store.isFirst(product) ? -8 : 0)
                 .padding(.bottom, store.isLast(product) ? 24 : 0)
@@ -50,6 +59,11 @@ struct HomeView: View {
 }
 
 #Preview {
-  HomeView()
-    .environmentObject(ProductStore())
+  @Namespace var namespace
+
+  return HomeView(
+    namespace: namespace,
+    selectedProduct: .constant(nil)
+  )
+  .environmentObject(ProductStore())
 }

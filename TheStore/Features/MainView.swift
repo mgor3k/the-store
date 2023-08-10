@@ -7,7 +7,7 @@ struct MainView: View {
 
   var body: some View {
     TabView(selection: $selectedTab) {
-      HomeView()
+      HomeCoordinator()
         .tag(Tab.home)
 
       CartView()

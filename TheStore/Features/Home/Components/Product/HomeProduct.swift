@@ -5,7 +5,11 @@ import SwiftUI
 struct HomeProduct: View {
   @EnvironmentObject var store: ProductStore
 
+  let namespace: Namespace.ID
+
   let product: Product
+
+  let onBuyTapped: () -> Void
 
   var body: some View {
     GeometryReader { proxy in
@@ -34,6 +38,7 @@ struct HomeProduct: View {
         .frame(width: proxy.size.width * 0.4)
         .overlay {
           DynamicImage(imageType: product.image)
+            .matchedGeometryEffect(id: "image+\(product.id)", in: namespace)
             .offset(x: 16, y: 12)
             .padding(12)
         }
@@ -62,7 +67,7 @@ struct HomeProduct: View {
 
             Spacer()
 
-            Button(action: {}) {
+            Button(action: onBuyTapped) {
               Text("Buy")
             }
             .buttonStyle(.primary)
@@ -79,12 +84,16 @@ struct HomeProduct: View {
       .background(
         Color(hex: product.hexColor)
           .opacity(0.5)
-      )
-      .clipShape(
-        RoundedRectangle(
-          cornerRadius: 28,
-          style: .continuous
-        )
+          .clipShape(
+            RoundedRectangle(
+              cornerRadius: 28,
+              style: .continuous
+            )
+          )
+          .matchedGeometryEffect(
+            id: "background+\(product.id)",
+            in: namespace
+          )
       )
       .overlay(alignment: .topLeading) {
         LikeButton(product: product)
@@ -97,8 +106,12 @@ struct HomeProduct: View {
 }
 
 #Preview {
-  HomeProduct(
-    product: Product.mock[0]
+  @Namespace var namespace
+
+  return HomeProduct(
+    namespace: namespace,
+    product: Product.mock[0],
+    onBuyTapped: {}
   )
   .environmentObject(ProductStore())
 }
