@@ -92,8 +92,7 @@ struct HomeProduct: View {
           )
           .matchedGeometryEffect(
             id: "background+\(product.id)",
-            in: namespace
-          )
+            in: namespace)
       )
       .overlay(alignment: .topLeading) {
         LikeButton(product: product)

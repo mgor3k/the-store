@@ -33,9 +33,9 @@ struct HomeView: View {
                   selectedProduct = product
                 }
               )
-                .padding(.horizontal, 24)
-                .padding(.top, store.isFirst(product) ? -8 : 0)
-                .padding(.bottom, store.isLast(product) ? 24 : 0)
+              .padding(.horizontal, 24)
+              .padding(.top, store.isFirst(product) ? -8 : 0)
+              .padding(.bottom, store.isLast(product) ? 24 : 0)
             }
           } header: {
             categoriesMenu

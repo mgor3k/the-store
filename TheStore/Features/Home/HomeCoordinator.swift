@@ -15,11 +15,17 @@ struct HomeCoordinator: View {
       if let selectedProduct {
         DetailsView(
           namespace: namespace,
-          product: selectedProduct
+          product: selectedProduct,
+          onBackTapped: {
+            self.selectedProduct = nil
+          }
         )
       }
     }
-    .animation(.snappy, value: selectedProduct)
+    .animation(
+      .snappy.speed(1.35),
+      value: selectedProduct
+    )
   }
 }
 

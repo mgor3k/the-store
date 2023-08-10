@@ -7,6 +7,8 @@ struct DetailsView: View {
 
   let product: Product
 
+  let onBackTapped: () -> Void
+
   var body: some View {
     ZStack {
       Color.white.ignoresSafeArea()
@@ -34,6 +36,13 @@ struct DetailsView: View {
               in: namespace
             )
         )
+        .overlay(alignment: .topLeading) {
+          Button(action: onBackTapped) {
+            Image(systemName: "arrow.left")
+              .foregroundStyle(.black)
+              .padding(24)
+          }
+        }
         .padding()
 
         Spacer()
@@ -47,6 +56,7 @@ struct DetailsView: View {
 
   return DetailsView(
     namespace: namespace,
-    product: Product.mock[0]
+    product: Product.mock[0], 
+    onBackTapped: {}
   )
 }
