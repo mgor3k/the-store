@@ -30,9 +30,12 @@ struct HomeView: View {
                 namespace: namespace,
                 product: product,
                 onBuyTapped: {
-                  selectedProduct = product
+                  // TODO: 
                 }
               )
+              .onTapGesture {
+                selectedProduct = product
+              }
               .padding(.horizontal, 24)
               .padding(.top, store.isFirst(product) ? -8 : 0)
               .padding(.bottom, store.isLast(product) ? 24 : 0)
