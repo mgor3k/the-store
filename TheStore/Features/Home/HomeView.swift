@@ -38,7 +38,7 @@ struct HomeView: View {
               }
               .padding(.horizontal, 24)
               .padding(.top, store.isFirst(product) ? -8 : 0)
-              .padding(.bottom, store.isLast(product) ? 24 : 0)
+              .padding(.bottom, store.isLast(product) ? 60 : 0)
             }
           } header: {
             categoriesMenu
@@ -47,7 +47,7 @@ struct HomeView: View {
       }
       .animation(.snappy, value: selectedCategory)
     }
-    .padding(.vertical)
+    .padding(.top)
   }
 
   func products(for category: Category) -> [Product] {
