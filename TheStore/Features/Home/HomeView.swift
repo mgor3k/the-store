@@ -25,12 +25,12 @@ struct HomeView: View {
 
         LazyVStack(spacing: 24, pinnedViews: [.sectionHeaders]) {
           Section {
-            ForEach(store.products) { product in
+            ForEach(products(for: selectedCategory)) { product in
               HomeProduct(
                 namespace: namespace,
                 product: product,
                 onBuyTapped: {
-                  // TODO: 
+                  // TODO:
                 }
               )
               .onTapGesture {
@@ -45,8 +45,19 @@ struct HomeView: View {
           }
         }
       }
+      .animation(.snappy, value: selectedCategory)
     }
     .padding(.vertical)
+  }
+
+  func products(for category: Category) -> [Product] {
+    // TODO: Temp
+    switch category {
+    case .shoes:
+      return [store.products[0], store.products[3]]
+    default:
+      return store.products
+    }
   }
 
   var categoriesMenu: some View {
