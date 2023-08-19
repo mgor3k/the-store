@@ -10,12 +10,23 @@ struct TabBar: View {
 
   @Binding var selectedTab: Tab
 
+  var isCartSelected: Bool {
+    selectedTab == .cart
+  }
+
+  var hasCartItems: Bool {
+    cart.items.count > 0
+  }
+
   var body: some View {
     HStack {
       ForEach(tabs) { tab in
         Image(systemName: tab.systemImageName)
           .foregroundStyle(
             selectedTab == tab ? .white : .gray
+          )
+          .opacity(
+            tab == .cart && hasCartItems && isCartSelected ? 0 : 1
           )
           .frame(
             width: 44,
@@ -28,14 +39,18 @@ struct TabBar: View {
               .matchedGeometryEffect(id: "tab", in: namespace)
             : nil
           )
-          .overlay(alignment: .topTrailing) {
-            if tab == .cart && cart.items.count > 0 {
+          .overlay(alignment: selectedTab == .cart ? .center : .topTrailing) {
+            if tab == .cart && hasCartItems {
               badge
             }
           }
           .animation(
             .snappy(duration: 0.3),
             value: selectedTab
+          )
+          .animation(
+            .snappy,
+            value: cart.items.count
           )
           .frame(maxWidth: .infinity)
           .contentShape(Circle())
@@ -48,13 +63,16 @@ struct TabBar: View {
     .background(Color.white)
   }
 
+  @ViewBuilder
   var badge: some View {
     Text(String(cart.items.count))
       .padding(6)
-      .font(.caption2)
+      .font(isCartSelected ? .caption : .caption2)
+      .bold(isCartSelected)
       .foregroundStyle(.white)
-      .background(Color.red)
+      .background(isCartSelected ? nil : Color.red)
       .clipShape(Circle())
+      .transition(.scale)
   }
 }
 
