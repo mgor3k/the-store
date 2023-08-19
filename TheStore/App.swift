@@ -9,6 +9,7 @@ struct TheStoreApp: App {
       MainView()
         .tint(.orange)
         .environmentObject(ProductStore())
+        .environmentObject(CartStore())
     }
   }
 }

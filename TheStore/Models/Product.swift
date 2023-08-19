@@ -2,7 +2,7 @@
 
 import Foundation
 
-struct Product: Identifiable, Equatable {
+struct Product: Identifiable, Equatable, Hashable {
   let id: String
   let name: String
 
@@ -10,6 +10,10 @@ struct Product: Identifiable, Equatable {
   let image: ImageType
 
   let isLiked: Bool
+
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
 }
 
 extension Product {

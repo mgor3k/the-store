@@ -139,7 +139,9 @@ struct DetailsView: View {
                       .padding(2)
                       .background(Circle().stroke(.white, lineWidth: 2))
                       .transition(.scale)
-                  case .failure(let error):
+                  case .failure:
+                    EmptyView()
+                  @unknown default:
                     EmptyView()
                   }
                 }

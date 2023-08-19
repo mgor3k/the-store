@@ -6,6 +6,7 @@ struct HomeView: View {
   @State var searchPhrase = ""
   @State var selectedCategory: Category = .all
   @EnvironmentObject var store: ProductStore
+  @EnvironmentObject var cart: CartStore
 
   let categories = Category.allCases
 
@@ -30,7 +31,7 @@ struct HomeView: View {
                 namespace: namespace,
                 product: product,
                 onBuyTapped: {
-                  // TODO:
+                  cart.add(product)
                 }
               )
               .onTapGesture {
@@ -80,4 +81,5 @@ struct HomeView: View {
     selectedProduct: .constant(nil)
   )
   .environmentObject(ProductStore())
+  .environmentObject(CartStore())
 }

@@ -54,4 +54,5 @@ struct MainView: View {
 
 #Preview {
   MainView()
+    .environmentObject(ProductStore())
 }

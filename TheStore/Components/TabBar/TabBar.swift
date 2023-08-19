@@ -4,6 +4,7 @@ import SwiftUI
 
 struct TabBar: View {
   @Namespace var namespace
+  @EnvironmentObject var cart: CartStore
 
   var tabs = Tab.allCases
 
@@ -27,6 +28,11 @@ struct TabBar: View {
               .matchedGeometryEffect(id: "tab", in: namespace)
             : nil
           )
+          .overlay(alignment: .topTrailing) {
+            if tab == .cart && cart.items.count > 0 {
+              badge
+            }
+          }
           .animation(
             .snappy(duration: 0.3),
             value: selectedTab
@@ -41,10 +47,24 @@ struct TabBar: View {
     .padding()
     .background(Color.white)
   }
+
+  var badge: some View {
+    Text(String(cart.items.count))
+      .padding(6)
+      .font(.caption2)
+      .foregroundStyle(.white)
+      .background(Color.red)
+      .clipShape(Circle())
+  }
 }
 
 #Preview {
   TabBar(
     selectedTab: .constant(.home)
+  )
+  .environmentObject(
+    CartStore(
+      items: [.mock[0]: 1]
+    )
   )
 }
