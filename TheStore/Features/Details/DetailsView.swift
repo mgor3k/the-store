@@ -23,6 +23,7 @@ struct DetailsView: View {
   ]
 
   @State var selectedSize: Size = 37
+  @EnvironmentObject var cart: CartStore
 
   let namespace: Namespace.ID
 
@@ -163,14 +164,10 @@ struct DetailsView: View {
       .overlay(alignment: .bottomTrailing) {
         ZStack {
           if hasAppeared {
-            Image(systemName: "basket.fill")
-              .foregroundStyle(.white)
-              .padding(14)
-              .background(Color.orange)
-              .clipShape(Circle())
-              .padding(24)
-              .shadow(color: .orange.opacity(0.3), radius: 10, x: 2, y: 8)
-              .transition(.scale)
+            BasketView {
+              cart.add(product)
+              onBackTapped()
+            }
           }
         }
         .animation(.snappy.delay(0.5), value: hasAppeared)
@@ -190,4 +187,5 @@ struct DetailsView: View {
     product: Product.mock[0], 
     onBackTapped: {}
   )
+  .environmentObject(CartStore())
 }
