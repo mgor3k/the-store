@@ -67,10 +67,9 @@ struct HomeProduct: View {
 
             Spacer()
 
-            Button(action: onBuyTapped) {
-              Text("Buy")
-            }
-            .buttonStyle(.primary)
+            BuyButton(
+              action: onBuyTapped
+            )
           }
         }
         .padding(.horizontal, 16)
