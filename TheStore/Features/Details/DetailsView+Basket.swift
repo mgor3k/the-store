@@ -15,13 +15,13 @@ extension DetailsView {
           .clipShape(Circle())
           .padding(24)
           .shadow(
-            color: .orange.opacity(0.3), 
+            color: .orange.opacity(0.3),
             radius: 10,
             x: 2,
             y: 8
           )
       }
-        .transition(.scale)
+      .transition(.scale)
     }
   }
 }
