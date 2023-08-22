@@ -4,10 +4,27 @@ import SwiftUI
 
 extension HomeProduct {
   struct PriceView: View {
+    let price: Double
+
+    var intValue: Int {
+      Int(price)
+    }
+
+    var fractionalIntValue: Int {
+      let fraction = price - Double(intValue)
+      return Int(fraction * 100)
+    }
+
+    var fractionalString: String {
+      fractionalIntValue < 10 
+      ? "0\(fractionalIntValue)"
+      : "\(fractionalIntValue)"
+    }
+
     var body: some View {
       HStack(alignment: .bottom, spacing: 0) {
-        Text("$320.")
-        Text("00")
+        Text("$\(intValue).")
+        Text(fractionalString)
           .font(.caption2)
           .offset(y: 3)
       }
@@ -17,5 +34,7 @@ extension HomeProduct {
 }
 
 #Preview {
-  HomeProduct.PriceView()
+  HomeProduct.PriceView(
+    price: 250.50
+  )
 }

@@ -31,6 +31,7 @@ final class ProductStore: ObservableObject {
     let tempProduct = Product(
       id: product.id,
       name: product.name,
+      price: product.price,
       hexColor: product.hexColor,
       image: product.image,
       isLiked: !isLiked

@@ -63,7 +63,9 @@ struct HomeProduct: View {
           Spacer()
 
           HStack {
-            PriceView()
+            PriceView(
+              price: product.price
+            )
 
             Spacer()
 
