@@ -38,7 +38,10 @@ struct HomeProduct: View {
         .frame(width: proxy.size.width * 0.4)
         .overlay {
           DynamicImage(imageType: product.image)
-            .matchedGeometryEffect(id: "image+\(product.id)", in: namespace)
+            .matchedGeometryEffect(
+              id: MatchedGeometry.image(id: product.id),
+              in: namespace
+            )
             .offset(x: 16, y: 12)
             .padding(12)
         }
@@ -93,7 +96,7 @@ struct HomeProduct: View {
             )
           )
           .matchedGeometryEffect(
-            id: "background+\(product.id)",
+            id: MatchedGeometry.background(id: product.id),
             in: namespace)
       )
       .overlay(alignment: .topLeading) {

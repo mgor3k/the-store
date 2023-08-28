@@ -24,7 +24,7 @@ struct DetailsView: View {
         )
         .frame(maxWidth: .infinity, maxHeight: 250)
         .matchedGeometryEffect(
-          id: "image+\(product.id)",
+          id: MatchedGeometry.image(id: product.id),
           in: namespace
         )
         .padding()
@@ -38,7 +38,7 @@ struct DetailsView: View {
               )
             )
             .matchedGeometryEffect(
-              id: "background+\(product.id)",
+              id: MatchedGeometry.background(id: product.id),
               in: namespace
             )
         )
