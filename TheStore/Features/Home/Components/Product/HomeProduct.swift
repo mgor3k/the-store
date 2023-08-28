@@ -69,7 +69,8 @@ struct HomeProduct: View {
 
             Spacer()
 
-            BuyButton(
+            AnimatableButton(
+              title: "Buy",
               action: onBuyTapped
             )
           }

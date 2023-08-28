@@ -2,15 +2,16 @@
 
 import SwiftUI
 
-struct BuyButton: View {
+struct AnimatableButton: View {
   @State var isAnimating = false
 
+  let title: String
   let action: () -> Void
 
   var body: some View {
     Button(action: onAction) {
       ZStack {
-        Text("Buy")
+        Text(title)
           .opacity(isAnimating ? 0 : 1)
 
         if isAnimating {
@@ -36,7 +37,8 @@ struct BuyButton: View {
 }
 
 #Preview {
-  BuyButton(
+  AnimatableButton(
+    title: "test",
     action: {}
   )
 }
