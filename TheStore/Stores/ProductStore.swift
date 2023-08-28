@@ -34,6 +34,7 @@ final class ProductStore: ObservableObject {
       price: product.price,
       hexColor: product.hexColor,
       image: product.image,
+      availableSizes: product.availableSizes,
       isLiked: !isLiked
     )
 

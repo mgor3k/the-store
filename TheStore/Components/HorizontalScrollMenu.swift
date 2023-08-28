@@ -8,7 +8,7 @@ struct HorizontalScrollMenu<T: Hashable>: View {
   let items: [T]
   let title: KeyPath<T, String>
 
-  @Binding var selectedItem: T
+  @Binding var selectedItem: T?
 
   var body: some View {
     ScrollViewReader { reader in

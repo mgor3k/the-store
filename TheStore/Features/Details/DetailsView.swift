@@ -5,12 +5,7 @@ import SwiftUI
 struct DetailsView: View {
   @State private var hasAppeared = false
 
-  // TODO: Temporary
-  let sizes: [Size] = [
-    36, 37, 38, 39, 40, 41, 42, 43, 44, 45
-  ]
-
-  @State var selectedSize: Size = 37
+  @State var selectedSize: Size?
   @EnvironmentObject var cart: CartStore
 
   let namespace: Namespace.ID
@@ -88,9 +83,8 @@ struct DetailsView: View {
               .font(.subheadline)
               .padding(.horizontal, 24)
 
-            // Adjust this to match design
             HorizontalScrollMenu(
-              items: sizes,
+              items: product.availableSizes,
               title: \.title,
               selectedItem: $selectedSize
             )
@@ -162,6 +156,8 @@ struct DetailsView: View {
       }
     }
     .onAppear {
+      selectedSize = product.availableSizes.first
+
       hasAppeared = true
     }
   }

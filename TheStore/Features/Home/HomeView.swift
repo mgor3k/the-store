@@ -65,7 +65,14 @@ struct HomeView: View {
     HorizontalScrollMenu(
       items: categories,
       title: \.title,
-      selectedItem: $selectedCategory
+      selectedItem: Binding<Category?>(
+        get: { selectedCategory },
+        set: { category in
+          if let category {
+            selectedCategory = category
+          }
+        }
+      )
     )
     .frame(height: 32)
     .padding(.bottom, 8)

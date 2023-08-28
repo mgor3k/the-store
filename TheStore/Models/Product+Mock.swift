@@ -10,6 +10,7 @@ extension Product {
       price: 250.40,
       hexColor: "#FFD9D8",
       image: .local("nike1"),
+      availableSizes: [34, 35, 36, 37],
       isLiked: true
     ),
     .init(
@@ -18,6 +19,7 @@ extension Product {
       price: 99.00,
       hexColor: "#DBE3E6",
       image: .local("nike2"),
+      availableSizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
       isLiked: false
     ),
     .init(
@@ -26,6 +28,7 @@ extension Product {
       price: 56.44,
       hexColor: "#FFD9D8",
       image: .local("nike1"),
+      availableSizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
       isLiked: false
     ),
     .init(
@@ -34,6 +37,7 @@ extension Product {
       price: 103.04,
       hexColor: "#DBE3E6",
       image: .local("nike1"),
+      availableSizes: [36, 37, 38, 43, 44, 45],
       isLiked: false
     )
   ]

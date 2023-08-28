@@ -17,6 +17,7 @@ extension ProductProvider {
           price: product.price,
           hexColor: product.hexColor,
           image: product.image,
+          availableSizes: product.availableSizes,
           isLiked: true
         )
       },
@@ -27,6 +28,7 @@ extension ProductProvider {
           price: product.price,
           hexColor: product.hexColor,
           image: product.image,
+          availableSizes: product.availableSizes,
           isLiked: false
         )
       }
