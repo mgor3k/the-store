@@ -198,8 +198,8 @@
 		B956EC402A855D1700D89A93 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				B9FBFD122A9D2B2400444A35 /* Components */,
 				B956EC412A855D2300D89A93 /* DetailsView.swift */,
-				B96CF7812A9551E1009A2A10 /* DetailsView+Basket.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -279,6 +279,14 @@
 				B9C9AA3B2A7FB17300BFC2AA /* ProductProvider.swift */,
 			);
 			path = Providers;
+			sourceTree = "<group>";
+		};
+		B9FBFD122A9D2B2400444A35 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B96CF7812A9551E1009A2A10 /* DetailsView+Basket.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
