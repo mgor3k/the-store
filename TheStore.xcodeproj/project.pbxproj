@@ -133,6 +133,7 @@
 				B93D01302A753028007A5DBA /* Features */,
 				B91973602A784F7D00D1703A /* Models */,
 				B9C9AA382A7FAE7200BFC2AA /* Stores */,
+				B9FBFD112A9D29B700444A35 /* Providers */,
 				B93D012A2A75021B007A5DBA /* Components */,
 				B9D7E9AD2A7E47F30042E7C7 /* Styles */,
 				B9397D242A7E6EA90004B781 /* Extensions */,
@@ -208,7 +209,6 @@
 			children = (
 				B9C9AA392A7FAE8100BFC2AA /* ProductStore.swift */,
 				B98907142A915CED0033F9D7 /* CartStore.swift */,
-				B9C9AA3B2A7FB17300BFC2AA /* ProductProvider.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -271,6 +271,14 @@
 				B9D7E9AE2A7E48030042E7C7 /* PrimaryButtonStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		B9FBFD112A9D29B700444A35 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				B9C9AA3B2A7FB17300BFC2AA /* ProductProvider.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
