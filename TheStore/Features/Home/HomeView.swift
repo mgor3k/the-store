@@ -1,10 +1,11 @@
 //  Created by Maciej Gorecki on 29/07/2023.
 
 import SwiftUI
+import TheStoreKit
 
 struct HomeView: View {
   @State var searchPhrase = ""
-  @State var selectedCategory: Category = .all
+  @State var selectedCategory: TheStoreKit.Category = .all
   @EnvironmentObject var store: ProductStore
   @EnvironmentObject var cart: CartStore
 
@@ -51,7 +52,7 @@ struct HomeView: View {
     .padding(.top)
   }
 
-  func products(for category: Category) -> [Product] {
+  func products(for category: TheStoreKit.Category) -> [Product] {
     // TODO: Temp
     switch category {
     case .shoes:
@@ -65,7 +66,7 @@ struct HomeView: View {
     HorizontalScrollMenu(
       items: categories,
       title: \.title,
-      selectedItem: Binding<Category?>(
+      selectedItem: Binding<TheStoreKit.Category?>(
         get: { selectedCategory },
         set: { category in
           if let category {

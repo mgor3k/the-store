@@ -2,14 +2,14 @@
 
 import Foundation
 
-struct Size: Hashable, ExpressibleByIntegerLiteral {
+public struct Size: Hashable, ExpressibleByIntegerLiteral {
   let value: Int
 
-  var title: String {
+  public var title: String {
     String(value)
   }
 
-  init(integerLiteral value: Int) {
+  public init(integerLiteral value: Int) {
     self.value = value
   }
 }

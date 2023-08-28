@@ -2,14 +2,14 @@
 
 import Foundation
 
-final class CartStore: ObservableObject {
-  @Published var items: [Product: Int] = [:]
+public final class CartStore: ObservableObject {
+  @Published public var items: [Product: Int] = [:]
 
-  init(items: [Product: Int] = [:]) {
+  public init(items: [Product: Int] = [:]) {
     self.items = items
   }
 
-  func add(_ product: Product) {
+  public func add(_ product: Product) {
     guard let count = items[product] else {
       items[product] = 1
       return

@@ -2,10 +2,11 @@
 
 import Foundation
 
-enum Category: Hashable, CaseIterable {
+#warning("Update namings")
+public enum Category: Hashable, CaseIterable {
   case all, shoes, bag, clothing, cap, pants
 
-  var title: String {
+  public var title: String {
     switch self {
     case .all: "All"
     case .shoes: "Shoes"

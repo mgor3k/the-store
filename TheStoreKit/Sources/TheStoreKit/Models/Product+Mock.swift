@@ -2,7 +2,7 @@
 
 import Foundation
 
-extension Product {
+public extension Product {
   static let mock: [Self] = [
     .init(
       id: "1",

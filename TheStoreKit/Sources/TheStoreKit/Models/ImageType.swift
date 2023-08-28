@@ -2,7 +2,7 @@
 
 import Foundation
 
-enum ImageType: Equatable, Hashable {
+public enum ImageType: Equatable, Hashable {
   case local(String)
   case remote(URL)
 }

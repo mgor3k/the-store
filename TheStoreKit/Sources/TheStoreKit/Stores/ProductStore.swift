@@ -2,12 +2,12 @@
 
 import Foundation
 
-final class ProductStore: ObservableObject {
-  @Published var products: [Product]
+public final class ProductStore: ObservableObject {
+  @Published public var products: [Product]
 
   private let provider: ProductProvider
 
-  init(
+  public init(
     products: [Product] = Product.mock,
     provider: ProductProvider = .inMemory
   ) {
@@ -15,15 +15,15 @@ final class ProductStore: ObservableObject {
     self.provider = provider
   }
 
-  func isFirst(_ product: Product) -> Bool {
+  public func isFirst(_ product: Product) -> Bool {
     (products.firstIndex(where: { $0.id == product.id }) ?? -1) == 0
   }
 
-  func isLast(_ product: Product) -> Bool {
+  public func isLast(_ product: Product) -> Bool {
     (products.firstIndex(where: { $0.id == product.id }) ?? -1) == products.count - 1
   }
 
-  func toggleLike(_ product: Product) {
+  public func toggleLike(_ product: Product) {
     guard let index = products.firstIndex(where: { $0.id == product.id }) else { return }
 
     let isLiked = product.isLiked

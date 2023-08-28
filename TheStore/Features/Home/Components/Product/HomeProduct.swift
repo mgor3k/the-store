@@ -1,6 +1,7 @@
 //  Created by Maciej Gorecki on 01/08/2023.
 
 import SwiftUI
+import TheStoreKit
 
 struct HomeProduct: View {
   @EnvironmentObject var store: ProductStore

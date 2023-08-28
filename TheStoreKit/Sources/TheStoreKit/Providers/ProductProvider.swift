@@ -2,12 +2,12 @@
 
 import Foundation
 
-struct ProductProvider {
-  let like: (Product) async throws -> Product
-  let unlike: (Product) async throws -> Product
+public struct ProductProvider {
+  public let like: (Product) async throws -> Product
+  public let unlike: (Product) async throws -> Product
 }
 
-extension ProductProvider {
+public extension ProductProvider {
   static var inMemory: Self {
     return .init(
       like: { product in

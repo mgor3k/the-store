@@ -1,6 +1,7 @@
 //  Created by Maciej Gorecki on 29/07/2023.
 
 import SwiftUI
+import TheStoreKit
 
 struct TabBar: View {
   @Namespace var namespace

@@ -1,6 +1,7 @@
 //  Created by Maciej Gorecki on 10/08/2023.
 
 import SwiftUI
+import TheStoreKit
 
 struct DetailsView: View {
   @State private var hasAppeared = false
