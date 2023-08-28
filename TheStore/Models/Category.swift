@@ -7,18 +7,12 @@ enum Category: Hashable, CaseIterable {
 
   var title: String {
     switch self {
-    case .all:
-      "All"
-    case .shoes:
-      "Shoes"
-    case .bag:
-      "Bag"
-    case .clothing:
-      "Clothing"
-    case .cap:
-      "Cap"
-    case .pants:
-      "Pants"
+    case .all: "All"
+    case .shoes: "Shoes"
+    case .bag: "Bag"
+    case .clothing: "Clothing"
+    case .cap: "Cap"
+    case .pants: "Pants"
     }
   }
 }

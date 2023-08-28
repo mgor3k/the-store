@@ -38,6 +38,7 @@
 		B9D7E9AF2A7E48030042E7C7 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7E9AE2A7E48030042E7C7 /* PrimaryButtonStyle.swift */; };
 		B9F7C89C2A795EAB00E3F9F7 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F7C89B2A795EAB00E3F9F7 /* Product.swift */; };
 		B9F7C89E2A795F9600E3F9F7 /* HomeProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F7C89D2A795F9600E3F9F7 /* HomeProduct.swift */; };
+		B9FBFD102A9D28F000444A35 /* Product+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FBFD0F2A9D28F000444A35 /* Product+Mock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		B9D7E9AE2A7E48030042E7C7 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		B9F7C89B2A795EAB00E3F9F7 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B9F7C89D2A795F9600E3F9F7 /* HomeProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProduct.swift; sourceTree = "<group>"; };
+		B9FBFD0F2A9D28F000444A35 /* Product+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+Mock.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				B91973612A784F8B00D1703A /* Category.swift */,
+				B9FBFD0F2A9D28F000444A35 /* Product+Mock.swift */,
 				B9F7C89B2A795EAB00E3F9F7 /* Product.swift */,
 				B9C9AA412A7FC13000BFC2AA /* ImageType.swift */,
 				B96CF7832A9552EA009A2A10 /* Size.swift */,
@@ -355,6 +358,7 @@
 				B9F7C89E2A795F9600E3F9F7 /* HomeProduct.swift in Sources */,
 				B956EC422A855D2300D89A93 /* DetailsView.swift in Sources */,
 				B9D7E9AB2A7E46360042E7C7 /* HomeProduct+Price.swift in Sources */,
+				B9FBFD102A9D28F000444A35 /* Product+Mock.swift in Sources */,
 				B93D011C2A74FEBA007A5DBA /* App.swift in Sources */,
 				B9D40B932A75394E001ADAA1 /* SearchBar.swift in Sources */,
 				B9D40B8E2A75382E001ADAA1 /* HomeView+Header.swift in Sources */,
