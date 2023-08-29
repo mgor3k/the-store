@@ -15,6 +15,21 @@ struct DetailsView: View {
 
   let onBackTapped: () -> Void
 
+  static let numberFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+
+    formatter.numberStyle = .currency
+    formatter.currencyCode = "US"
+    formatter.maximumFractionDigits = 2
+    formatter.minimumFractionDigits = 0
+
+    return formatter
+  }()
+
+  var formattedPrice: String? {
+    Self.numberFormatter.string(from: NSNumber(value: product.price))
+  }
+
   var body: some View {
     ZStack {
       Color.white.ignoresSafeArea()
@@ -72,10 +87,12 @@ struct DetailsView: View {
 
               Spacer()
 
-              Text("$180")
-                .font(.title2)
-                .foregroundStyle(.orange)
-                .bold()
+              if let formattedPrice {
+                Text(formattedPrice)
+                  .font(.title2)
+                  .foregroundStyle(.orange)
+                  .bold()
+              }
             }
             .padding(.bottom, 18)
             .padding(.horizontal, 24)
