@@ -5,58 +5,58 @@ import TheStoreKit
 
 struct CartSummaryView: View {
   let summary: CartSummary
+  let onCheckout: () -> Void
 
   let numberFormatter: NumberFormatter = .currency
 
   var body: some View {
-    VStack {
+    VStack(spacing: 6) {
       HStack {
-        ItemView(
-          title: "Subtotal:",
-          value: summary.subtotal.asCurrency
-        )
+        HStack {
+          Text("Subtotal:")
+          Text(summary.subtotal.asCurrency)
+        }
 
         Spacer()
 
-        ItemView(
-          title: "Tax:",
-          value: summary.tax.asCurrency
-        )
+        HStack {
+          Text("Tax:")
+          Text(summary.tax.asCurrency)
+        }
       }
+      .foregroundStyle(.gray)
 
       HStack {
-        ItemView(
-          title: "Shipping:",
-          value: summary.shipping.asCurrency
-        )
+        HStack {
+          Text("Shipping:")
+          Text(summary.shipping.asCurrency)
+        }
+        .foregroundStyle(.gray)
 
         Spacer()
 
-        ItemView(
-          title: "Total:",
-          value: summary.total.asCurrency
-        )
+        HStack {
+          Text("Total:")
+          Text(summary.total.asCurrency)
+        }
       }
+      .padding(.bottom, 24)
+
+      Button(
+        "Checkout",
+        action: onCheckout
+      )
+      .buttonStyle(.primary)
+      .frame(maxWidth: .infinity, alignment: .leading)
     }
+    .font(.caption2)
     .frame(maxWidth: .infinity)
-  }
-
-  struct ItemView: View {
-    let title: String
-    let value: String
-
-    var body: some View {
-      HStack {
-        Text(title)
-
-        Text(value)
-      }
-    }
   }
 }
 
 #Preview {
   CartSummaryView(
-    summary: .mock
+    summary: .mock,
+    onCheckout: {}
   )
 }

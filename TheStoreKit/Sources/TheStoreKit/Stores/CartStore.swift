@@ -14,7 +14,7 @@ public final class CartStore: ObservableObject {
 
     let tax = itemsSum * taxRate
     let sumWithoutTax = itemsSum - tax
-    let shipping = 19.99
+    let shipping = items.keys.count > 0 ? 19.99 : 0
 
     return .init(
       subtotal: sumWithoutTax,
@@ -34,5 +34,12 @@ public final class CartStore: ObservableObject {
     }
 
     items[product] = count + 1
+  }
+
+  public func checkout() async {
+    // TODO: Temp
+    await MainActor.run {
+      items = [:]
+    }
   }
 }

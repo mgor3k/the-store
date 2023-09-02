@@ -18,19 +18,30 @@ struct CartView: View {
         CartItemView(
           product: product
         )
+        .transition(.scale)
       }
 
       Spacer()
 
     }
+    .animation(.snappy, value: cartStore.items.keys)
     .overlay(alignment: .bottom) {
       CartSummaryView(
-        summary: cartStore.summary
+        summary: cartStore.summary,
+        onCheckout: checkout
       )
-      .padding(.bottom)
+      .padding()
+      .padding(.bottom, 8)
     }
     .padding(.vertical)
     .pageHorizontalPadding()
+  }
+
+  private func checkout() {
+    // TODO: Add loader
+    Task {
+      await cartStore.checkout()
+    }
   }
 }
 
