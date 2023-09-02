@@ -1,12 +1,10 @@
 //  Created by Maciej Gorecki on 02/09/2023.
 
 import SwiftUI
+import TheStoreKit
 
 struct CartSummaryView: View {
-  let subtotal: Double
-  let tax: Double
-  let shipping: Double
-  let total: Double
+  let summary: CartSummary
 
   let numberFormatter: NumberFormatter = .currency
 
@@ -15,28 +13,28 @@ struct CartSummaryView: View {
       HStack {
         ItemView(
           title: "Subtotal:",
-          value: subtotal.asCurrency
+          value: summary.subtotal.asCurrency
         )
 
         Spacer()
 
         ItemView(
           title: "Tax:",
-          value: tax.asCurrency
+          value: summary.tax.asCurrency
         )
       }
 
       HStack {
         ItemView(
           title: "Shipping:",
-          value: shipping.asCurrency
+          value: summary.shipping.asCurrency
         )
 
         Spacer()
 
         ItemView(
           title: "Total:",
-          value: total.asCurrency
+          value: summary.total.asCurrency
         )
       }
     }
@@ -59,9 +57,6 @@ struct CartSummaryView: View {
 
 #Preview {
   CartSummaryView(
-    subtotal: 100,
-    tax: 200,
-    shipping: 300,
-    total: 400
+    summary: .mock
   )
 }

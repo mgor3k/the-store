@@ -10,7 +10,7 @@ struct TheStoreApp: App {
       MainView()
         .tint(.orange)
         .environmentObject(ProductStore())
-        .environmentObject(CartStore())
+        .environmentObject(CartStore(items: [Product.mock[0]: 1]))
         .environmentObject(ReviewStore())
     }
   }
