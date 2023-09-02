@@ -12,6 +12,7 @@ struct CartView: View {
         .font(.title)
         .bold()
         .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.bottom, 16)
 
       ForEach(Array(cartStore.items.keys), id: \.id) { product in
         CartItemView(
