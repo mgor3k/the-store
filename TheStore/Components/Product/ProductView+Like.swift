@@ -3,7 +3,7 @@
 import SwiftUI
 import TheStoreKit
 
-extension HomeProduct {
+extension ProductView {
   struct LikeButton: View {
     @EnvironmentObject var store: ProductStore
 
@@ -28,7 +28,7 @@ extension HomeProduct {
 }
 
 #Preview {
-  HomeProduct.LikeButton(
+  ProductView.LikeButton(
     product: Product.mock[0]
   )
     .environmentObject(ProductStore())

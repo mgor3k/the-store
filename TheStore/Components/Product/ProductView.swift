@@ -3,7 +3,7 @@
 import SwiftUI
 import TheStoreKit
 
-struct HomeProduct: View {
+struct ProductView: View {
   @EnvironmentObject var store: ProductStore
 
   let namespace: Namespace.ID
@@ -113,7 +113,7 @@ struct HomeProduct: View {
 #Preview {
   @Namespace var namespace
 
-  return HomeProduct(
+  return ProductView(
     namespace: namespace,
     product: Product.mock[0],
     onBuyTapped: {}

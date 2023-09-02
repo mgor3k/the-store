@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-extension HomeProduct {
+extension ProductView {
   struct PriceView: View {
     let price: Double
 
@@ -34,7 +34,7 @@ extension HomeProduct {
 }
 
 #Preview {
-  HomeProduct.PriceView(
+  ProductView.PriceView(
     price: 250.50
   )
 }

@@ -28,7 +28,7 @@ struct HomeView: View {
         LazyVStack(spacing: 24, pinnedViews: [.sectionHeaders]) {
           Section {
             ForEach(products(for: selectedCategory)) { product in
-              HomeProduct(
+              ProductView(
                 namespace: namespace,
                 product: product,
                 onBuyTapped: {
