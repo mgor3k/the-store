@@ -5,11 +5,11 @@ import TheStoreKit
 
 struct HomeView: View {
   @State var searchPhrase = ""
-  @State var selectedCategory: TheStoreKit.Category = .all
+  @State var selectedCategory: ProductCategory = .all
   @EnvironmentObject var store: ProductStore
   @EnvironmentObject var cart: CartStore
 
-  let categories = Category.allCases
+  let categories = ProductCategory.allCases
 
   let namespace: Namespace.ID
   @Binding var selectedProduct: Product?
@@ -52,7 +52,7 @@ struct HomeView: View {
     .padding(.top)
   }
 
-  func products(for category: TheStoreKit.Category) -> [Product] {
+  func products(for category: TheStoreKit.ProductCategory) -> [Product] {
     // TODO: Temp
     switch category {
     case .shoes:
@@ -66,7 +66,7 @@ struct HomeView: View {
     HorizontalScrollMenu(
       items: categories,
       title: \.title,
-      selectedItem: Binding<TheStoreKit.Category?>(
+      selectedItem: Binding<TheStoreKit.ProductCategory?>(
         get: { selectedCategory },
         set: { category in
           if let category {

@@ -2,8 +2,7 @@
 
 import Foundation
 
-#warning("Update namings")
-public enum Category: Hashable, CaseIterable {
+public enum ProductCategory: Hashable, CaseIterable {
   case all, shoes, bag, clothing, cap, pants
 
   public var title: String {
