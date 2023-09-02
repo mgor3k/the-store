@@ -5,7 +5,6 @@ import TheStoreKit
 
 struct DetailsView: View {
   @State private var hasAppeared = false
-  @State private var reviews: [ProductReview] = []
 
   @State var selectedSize: Size?
   @EnvironmentObject var cart: CartStore
