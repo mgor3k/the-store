@@ -6,7 +6,7 @@ import TheStoreKit
 struct DetailsView: View {
   @State private var hasAppeared = false
 
-  @State var selectedSize: Size?
+  @State var selectedSize: ProductSize?
   @EnvironmentObject var cart: CartStore
 
   let namespace: Namespace.ID

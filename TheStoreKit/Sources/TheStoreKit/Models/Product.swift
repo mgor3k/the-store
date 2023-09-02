@@ -11,7 +11,7 @@ public struct Product: Identifiable, Equatable, Hashable {
   public let hexColor: String
   public let image: ImageType
 
-  public let availableSizes: [Size]
+  public let availableSizes: [ProductSize]
 
   public let isLiked: Bool
 }

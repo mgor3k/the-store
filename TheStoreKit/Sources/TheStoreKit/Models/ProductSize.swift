@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct Size: Hashable, ExpressibleByIntegerLiteral {
+public struct ProductSize: Hashable, ExpressibleByIntegerLiteral {
   let value: Int
 
   public var title: String {
