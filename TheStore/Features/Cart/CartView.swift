@@ -18,7 +18,7 @@ struct CartView: View {
         CartItemView(
           product: product
         )
-        .transition(.scale)
+        .transition(.slide)
       }
 
       Spacer()
