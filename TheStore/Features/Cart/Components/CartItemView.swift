@@ -12,7 +12,7 @@ struct CartItemView: View {
     HStack(alignment: .top, spacing: 18) {
       Rectangle()
         .fill(Color(hex: product.hexColor).opacity(0.5))
-        .frame(width: 60, height: 60)
+        .frame(width: 100)
         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
         .overlay {
           DynamicImage(imageType: product.image)
@@ -28,10 +28,15 @@ struct CartItemView: View {
         Text(product.price.asCurrency)
           .font(.caption2)
           .bold()
+
+        Spacer()
+
+        StepperView()
       }
 
       Spacer()
     }
+    .frame(height: 100)
     .padding()
   }
 }
