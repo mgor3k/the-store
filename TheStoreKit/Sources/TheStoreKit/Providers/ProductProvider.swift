@@ -3,8 +3,8 @@
 import Foundation
 
 public struct ProductProvider {
-  public let like: (Product) async throws -> Product
-  public let unlike: (Product) async throws -> Product
+  let like: (Product) async throws -> Product
+  let unlike: (Product) async throws -> Product
 }
 
 public extension ProductProvider {

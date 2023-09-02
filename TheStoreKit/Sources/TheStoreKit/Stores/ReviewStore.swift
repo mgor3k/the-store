@@ -3,11 +3,15 @@
 import Foundation
 
 public final class ReviewStore: ObservableObject {
-  public init() {
-    // TODO: Provider
+  private let provider: ReviewProvider
+
+  public init(provider: ReviewProvider = .inMemory) {
+    self.provider = provider
   }
   
   public func getReviewsForProduct(id: String) async -> [ProductReview] {
-    ProductReview.mock
+    let reviews = try? await provider.fetchReviews(id)
+
+    return reviews ?? []
   }
 }
