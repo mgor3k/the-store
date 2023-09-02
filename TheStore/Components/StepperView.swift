@@ -3,23 +3,26 @@
 import SwiftUI
 
 struct StepperView: View {
-  @State var quantity = 0
+  let value: Int
+
+  let onIncrement: () -> Void
+  let onDecrement: () -> Void
 
   var body: some View {
     HStack(spacing: 14) {
-      Button(action: decrement) {
+      Button(action: onDecrement) {
         Image(systemName: "chevron.left")
           .font(.caption2)
           .bold()
       }
 
-      Text(quantity, format: .number)
+      Text(value, format: .number)
         .font(.caption)
         .fontDesign(.monospaced)
         .contentTransition(.numericText())
-        .animation(.snappy, value: quantity)
+        .animation(.snappy, value: value)
 
-      Button(action: increment) {
+      Button(action: onIncrement) {
         Image(systemName: "chevron.right")
           .font(.caption2)
           .bold()
@@ -33,16 +36,14 @@ struct StepperView: View {
         .stroke(.gray.opacity(0.1), lineWidth: 1)
     }
   }
-
-  private func increment() {
-    quantity += 1
-  }
-
-  private func decrement() {
-    quantity -= 1
-  }
 }
 
 #Preview {
-  StepperView()
+  @State var value = 0
+
+  return StepperView(
+    value: value,
+    onIncrement: { value += 1 },
+    onDecrement: { value -= 1 }
+  )
 }

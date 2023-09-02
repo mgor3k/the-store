@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct CartSummary {
+public struct CartSummary: Equatable {
   public let subtotal: Double
   public let tax: Double
   public let shipping: Double

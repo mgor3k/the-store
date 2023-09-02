@@ -4,6 +4,8 @@ import SwiftUI
 import TheStoreKit
 
 struct CartItemView: View {
+  @EnvironmentObject var cartStore: CartStore
+
   let product: Product
 
   let numberFormatter: NumberFormatter = .currency
@@ -37,7 +39,11 @@ struct CartItemView: View {
 
         Spacer()
 
-        StepperView()
+        StepperView(
+          value: cartStore.quantity(for: product),
+          onIncrement: { cartStore.incrementQuantity(for: product) },
+          onDecrement: { cartStore.decrementQuantity(for: product) }
+        )
       }
 
       Spacer()

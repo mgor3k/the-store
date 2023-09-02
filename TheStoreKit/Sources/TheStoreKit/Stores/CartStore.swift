@@ -36,6 +36,24 @@ public final class CartStore: ObservableObject {
     items[product] = count + 1
   }
 
+  public func quantity(for product: Product) -> Int {
+    items[product] ?? 0
+  }
+
+  public func incrementQuantity(for product: Product) {
+    guard let count = items[product] else { return }
+
+    items[product] = count + 1
+  }
+
+  public func decrementQuantity(for product: Product) {
+    guard let count = items[product] else { return }
+
+    let newCount = count - 1
+
+    items[product] = newCount == 0 ? nil : newCount
+  }
+
   public func checkout() async {
     // TODO: Temp
     await MainActor.run {

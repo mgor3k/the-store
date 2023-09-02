@@ -15,6 +15,7 @@ struct CartSummaryView: View {
         HStack {
           Text("Subtotal:")
           Text(summary.subtotal.asCurrency)
+            .contentTransition(.numericText())
         }
 
         Spacer()
@@ -22,6 +23,7 @@ struct CartSummaryView: View {
         HStack {
           Text("Tax:")
           Text(summary.tax.asCurrency)
+            .contentTransition(.numericText())
         }
       }
       .foregroundStyle(.gray)
@@ -30,6 +32,7 @@ struct CartSummaryView: View {
         HStack {
           Text("Shipping:")
           Text(summary.shipping.asCurrency)
+            .contentTransition(.numericText())
         }
         .foregroundStyle(.gray)
 
@@ -38,6 +41,7 @@ struct CartSummaryView: View {
         HStack {
           Text("Total:")
           Text(summary.total.asCurrency)
+            .contentTransition(.numericText())
         }
       }
       .padding(.bottom, 24)
@@ -51,6 +55,7 @@ struct CartSummaryView: View {
     }
     .font(.caption2)
     .frame(maxWidth: .infinity)
+    .animation(.snappy, value: summary)
   }
 }
 
