@@ -9,7 +9,6 @@ struct DetailsView: View {
 
   @State var selectedSize: Size?
   @EnvironmentObject var cart: CartStore
-  @EnvironmentObject var review: ReviewStore
 
   let namespace: Namespace.ID
 
@@ -127,36 +126,9 @@ struct DetailsView: View {
               .fixedSize(horizontal: false, vertical: true)
               .padding(.bottom, 24)
 
-            Text("Reviews")
-              .padding(.horizontal, 24)
-
-            HStack {
-              ForEach(Array(zip(reviews.indices, reviews)), id: \.0) { (index, review) in
-                AsyncImage(url: review.avatarURL, transaction: Transaction(animation: .snappy)) { phase in
-                  switch phase {
-                  case .empty:
-                    EmptyView()
-                  case .success(let image):
-                    image
-                      .resizable()
-                      .scaledToFill()
-                      .frame(height: 40)
-                      .clipShape(Circle())
-                      .padding(2)
-                      .background(Circle().stroke(.white, lineWidth: 2))
-                      .transition(.scale)
-                  case .failure:
-                    EmptyView()
-                  @unknown default:
-                    EmptyView()
-                  }
-                }
-                .frame(width: 40, height: 40)
-                .offset(x: CGFloat(index * -14))
-              }
-
-              Spacer()
-            }
+            ReviewSection(
+              productId: product.id
+            )
             .padding(.horizontal, 24)
           }
           .padding(.vertical)
@@ -178,9 +150,6 @@ struct DetailsView: View {
         .animation(.snappy.delay(0.5), value: hasAppeared)
       }
     }
-    .task {
-      reviews = await review.getReviewsForProduct(id: product.id)
-    }
     .onAppear {
       selectedSize = product.availableSizes.first
 
@@ -194,7 +163,7 @@ struct DetailsView: View {
 
   return DetailsView(
     namespace: namespace,
-    product: Product.mock[0], 
+    product: Product.mock[0],
     onBackTapped: {}
   )
   .environmentObject(CartStore())
