@@ -56,4 +56,5 @@ extension DetailsView {
   DetailsView.ReviewSection(
     productId: "test"
   )
+  .environmentObject(ReviewStore())
 }
