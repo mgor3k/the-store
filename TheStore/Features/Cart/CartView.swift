@@ -21,6 +21,11 @@ struct CartView: View {
       }
 
       Spacer()
+
+    }
+    .overlay(alignment: .bottom) {
+      Text("Total")
+        .padding(.bottom)
     }
     .padding(.vertical)
     .pageHorizontalPadding()

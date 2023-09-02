@@ -6,20 +6,7 @@ import TheStoreKit
 struct CartItemView: View {
   let product: Product
 
-  static let numberFormatter: NumberFormatter = {
-    let formatter = NumberFormatter()
-
-    formatter.numberStyle = .currency
-    formatter.currencyCode = "US"
-    formatter.maximumFractionDigits = 2
-    formatter.minimumFractionDigits = 0
-
-    return formatter
-  }()
-
-  var formattedPrice: String? {
-    Self.numberFormatter.string(from: NSNumber(value: product.price))
-  }
+  let numberFormatter: NumberFormatter = .currency
 
   var body: some View {
     HStack(alignment: .top, spacing: 18) {
@@ -38,7 +25,7 @@ struct CartItemView: View {
           .font(.callout)
           .bold()
 
-        Text(formattedPrice ?? "")
+        Text(product.price.asCurrency)
           .font(.caption2)
           .bold()
       }

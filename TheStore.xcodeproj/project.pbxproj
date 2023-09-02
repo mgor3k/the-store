@@ -17,6 +17,9 @@
 		B93D012F2A7502A6007A5DBA /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D012E2A7502A6007A5DBA /* Tab.swift */; };
 		B93D01322A753037007A5DBA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D01312A753037007A5DBA /* MainView.swift */; };
 		B94F0FA42AA35814002C55C9 /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F0FA32AA35814002C55C9 /* CartItemView.swift */; };
+		B94F0FA62AA37180002C55C9 /* CartSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F0FA52AA37180002C55C9 /* CartSummaryView.swift */; };
+		B94F0FA82AA37339002C55C9 /* NumberFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F0FA72AA37339002C55C9 /* NumberFormatter+.swift */; };
+		B94F0FAA2AA373A0002C55C9 /* Double+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F0FA92AA373A0002C55C9 /* Double+Currency.swift */; };
 		B956EC422A855D2300D89A93 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B956EC412A855D2300D89A93 /* DetailsView.swift */; };
 		B96CF7802A954C9B009A2A10 /* AnimatableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CF77F2A954C9B009A2A10 /* AnimatableButton.swift */; };
 		B96CF7822A9551E1009A2A10 /* DetailsView+Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96CF7812A9551E1009A2A10 /* DetailsView+Basket.swift */; };
@@ -50,6 +53,9 @@
 		B93D012E2A7502A6007A5DBA /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		B93D01312A753037007A5DBA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B94F0FA32AA35814002C55C9 /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
+		B94F0FA52AA37180002C55C9 /* CartSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSummaryView.swift; sourceTree = "<group>"; };
+		B94F0FA72AA37339002C55C9 /* NumberFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+.swift"; sourceTree = "<group>"; };
+		B94F0FA92AA373A0002C55C9 /* Double+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Currency.swift"; sourceTree = "<group>"; };
 		B956EC412A855D2300D89A93 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		B96CF77F2A954C9B009A2A10 /* AnimatableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableButton.swift; sourceTree = "<group>"; };
 		B96CF7812A9551E1009A2A10 /* DetailsView+Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsView+Basket.swift"; sourceTree = "<group>"; };
@@ -87,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				B9397D252A7E6EB80004B781 /* Color+Hex.swift */,
+				B94F0FA72AA37339002C55C9 /* NumberFormatter+.swift */,
+				B94F0FA92AA373A0002C55C9 /* Double+Currency.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -182,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				B94F0FA32AA35814002C55C9 /* CartItemView.swift */,
+				B94F0FA52AA37180002C55C9 /* CartSummaryView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -348,6 +357,8 @@
 			files = (
 				B9D7E9AF2A7E48030042E7C7 /* PrimaryButtonStyle.swift in Sources */,
 				B9D40B8B2A75361F001ADAA1 /* CartView.swift in Sources */,
+				B94F0FAA2AA373A0002C55C9 /* Double+Currency.swift in Sources */,
+				B94F0FA62AA37180002C55C9 /* CartSummaryView.swift in Sources */,
 				B93D012C2A750231007A5DBA /* TabBar.swift in Sources */,
 				B9C9AA442A7FC2E600BFC2AA /* ProductView+Like.swift in Sources */,
 				B9D40B902A7538BE001ADAA1 /* HomeView+Search.swift in Sources */,
@@ -362,6 +373,7 @@
 				B9D40B932A75394E001ADAA1 /* SearchBar.swift in Sources */,
 				B9D40B8E2A75382E001ADAA1 /* HomeView+Header.swift in Sources */,
 				B93D01322A753037007A5DBA /* MainView.swift in Sources */,
+				B94F0FA82AA37339002C55C9 /* NumberFormatter+.swift in Sources */,
 				B919735F2A784D2800D1703A /* HorizontalScrollMenu.swift in Sources */,
 				B993496A2AA339A600185F20 /* DetailsView+Review.swift in Sources */,
 				B9D40B962A7539C6001ADAA1 /* FavoriteView.swift in Sources */,
