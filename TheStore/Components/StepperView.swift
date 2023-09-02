@@ -9,25 +9,25 @@ struct StepperView: View {
     HStack(spacing: 14) {
       Button(action: decrement) {
         Image(systemName: "chevron.left")
-          .font(.caption)
+          .font(.caption2)
           .bold()
       }
 
       Text(quantity, format: .number)
-        .font(.callout)
+        .font(.caption)
         .fontDesign(.monospaced)
         .contentTransition(.numericText())
         .animation(.snappy, value: quantity)
 
       Button(action: increment) {
         Image(systemName: "chevron.right")
-          .font(.caption)
+          .font(.caption2)
           .bold()
       }
     }
     .foregroundStyle(.black)
-    .padding(.vertical, 8)
-    .padding(.horizontal, 14)
+    .padding(.vertical, 6)
+    .padding(.horizontal, 12)
     .overlay {
       RoundedRectangle(cornerRadius: 16)
         .stroke(.gray.opacity(0.1), lineWidth: 1)

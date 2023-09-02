@@ -10,15 +10,21 @@ struct CartItemView: View {
 
   var body: some View {
     HStack(alignment: .top, spacing: 18) {
-      Rectangle()
-        .fill(Color(hex: product.hexColor).opacity(0.5))
-        .frame(width: 100)
-        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-        .overlay {
-          DynamicImage(imageType: product.image)
-            .padding(4)
-            .offset(y: 2)
-        }
+      DynamicImage(imageType: product.image)
+        .offset(y: 2)
+        .frame(width: 80)
+        .background(
+          Color(hex: product.hexColor)
+            .opacity(0.5)
+            .clipShape(
+              RoundedRectangle(
+                cornerRadius: 8,
+                style: .continuous
+              )
+            )
+            .rotationEffect(.degrees(-7))
+            .padding(12)
+        )
 
       VStack(alignment: .leading, spacing: 8) {
         Text(product.name)
@@ -36,7 +42,7 @@ struct CartItemView: View {
 
       Spacer()
     }
-    .frame(height: 100)
+    .frame(height: 80)
     .padding()
   }
 }
