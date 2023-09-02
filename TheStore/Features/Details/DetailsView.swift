@@ -5,9 +5,11 @@ import TheStoreKit
 
 struct DetailsView: View {
   @State private var hasAppeared = false
+  @State private var reviews: [ProductReview] = []
 
   @State var selectedSize: Size?
   @EnvironmentObject var cart: CartStore
+  @EnvironmentObject var review: ReviewStore
 
   let namespace: Namespace.ID
 
@@ -38,7 +40,10 @@ struct DetailsView: View {
         DynamicImage(
           imageType: product.image
         )
-        .frame(maxWidth: .infinity, maxHeight: 250)
+        .frame(
+          maxWidth: .infinity,
+          maxHeight: 250
+        )
         .matchedGeometryEffect(
           id: MatchedGeometry.image(id: product.id),
           in: namespace
@@ -126,8 +131,8 @@ struct DetailsView: View {
               .padding(.horizontal, 24)
 
             HStack {
-              ForEach(0...4, id: \.self) { index in
-                AsyncImage(url: URL(string: "https://i.pravatar.cc/300"), transaction: Transaction(animation: .snappy)) { phase in
+              ForEach(Array(zip(reviews.indices, reviews)), id: \.0) { (index, review) in
+                AsyncImage(url: review.avatarURL, transaction: Transaction(animation: .snappy)) { phase in
                   switch phase {
                   case .empty:
                     EmptyView()
@@ -172,6 +177,9 @@ struct DetailsView: View {
         }
         .animation(.snappy.delay(0.5), value: hasAppeared)
       }
+    }
+    .task {
+      reviews = await review.getReviewsForProduct(id: product.id)
     }
     .onAppear {
       selectedSize = product.availableSizes.first

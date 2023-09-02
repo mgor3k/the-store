@@ -11,6 +11,7 @@ struct TheStoreApp: App {
         .tint(.orange)
         .environmentObject(ProductStore())
         .environmentObject(CartStore())
+        .environmentObject(ReviewStore())
     }
   }
 }
