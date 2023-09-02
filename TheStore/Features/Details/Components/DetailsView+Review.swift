@@ -18,11 +18,14 @@ extension DetailsView {
         }
 
         HStack {
-          ForEach(Array(zip(reviews.indices, reviews)), id: \.0) { (index, review) in
-            AsyncImage(url: review.avatarURL, transaction: Transaction(animation: .snappy)) { phase in
+          let model = Array(zip(reviews.indices, reviews))
+
+          ForEach(model, id: \.0) { (index, review) in
+            AsyncImage(
+              url: review.avatarURL,
+              transaction: Transaction(animation: .snappy)
+            ) { phase in
               switch phase {
-              case .empty:
-                EmptyView()
               case .success(let image):
                 image
                   .resizable()
@@ -30,9 +33,15 @@ extension DetailsView {
                   .frame(height: 40)
                   .clipShape(Circle())
                   .padding(2)
-                  .background(Circle().stroke(.white, lineWidth: 2))
+                  .background(
+                    Circle()
+                      .stroke(
+                        .white,
+                        lineWidth: 2
+                      )
+                  )
                   .transition(.scale)
-              case .failure:
+              case .failure, .empty:
                 EmptyView()
               @unknown default:
                 EmptyView()
