@@ -81,7 +81,7 @@ struct DetailsView: View {
             Text(product.name)
               .font(.title)
               .bold()
-              .padding(.horizontal, 24)
+              .pageHorizontalPadding()
 
             HStack(alignment: .top) {
               Text("Men's running Shoe")
@@ -98,11 +98,11 @@ struct DetailsView: View {
               }
             }
             .padding(.bottom, 18)
-            .padding(.horizontal, 24)
+            .pageHorizontalPadding()
 
             Text("Select Size")
               .font(.subheadline)
-              .padding(.horizontal, 24)
+              .pageHorizontalPadding()
 
             HorizontalScrollMenu(
               items: product.availableSizes,
@@ -113,7 +113,7 @@ struct DetailsView: View {
             .padding(.bottom, 12)
 
             Text("Description")
-              .padding(.horizontal, 24)
+              .pageHorizontalPadding()
               .padding(.bottom, 12)
 
             Text("Your workhorse with wings returns. The Nike Air Zoom Pegasus 18 continues...")
@@ -128,7 +128,7 @@ struct DetailsView: View {
             ReviewSection(
               productId: product.id
             )
-            .padding(.horizontal, 24)
+            .pageHorizontalPadding()
           }
           .padding(.vertical)
           .transition(.slide)

@@ -23,7 +23,7 @@ struct HomeView: View {
             searchPhrase: $searchPhrase
           )
         }
-        .padding(.horizontal, 24)
+        .pageHorizontalPadding()
 
         LazyVStack(spacing: 24, pinnedViews: [.sectionHeaders]) {
           Section {

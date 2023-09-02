@@ -4,7 +4,16 @@ import SwiftUI
 
 struct CartView: View {
   var body: some View {
-    Color.red
+    VStack {
+      Text("Cart")
+        .font(.title)
+        .bold()
+        .frame(maxWidth: .infinity, alignment: .leading)
+
+      Spacer()
+    }
+    .padding(.vertical)
+    .pageHorizontalPadding()
   }
 }
 
