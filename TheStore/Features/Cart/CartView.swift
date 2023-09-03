@@ -6,6 +6,9 @@ import TheStoreKit
 struct CartView: View {
   @EnvironmentObject var cartStore: CartStore
 
+  let namespace: Namespace.ID
+  @Binding var selectedProduct: Product?
+
   var body: some View {
     VStack {
       Text("Cart")
@@ -16,7 +19,11 @@ struct CartView: View {
 
       ForEach(Array(cartStore.items.keys), id: \.id) { product in
         CartItemView(
-          product: product
+          namespace: namespace,
+          product: product,
+          onImageTapped: {
+            selectedProduct = product
+          }
         )
         .transition(.slide)
       }
@@ -46,6 +53,11 @@ struct CartView: View {
 }
 
 #Preview {
-  CartView()
-    .environmentObject(CartStore())
+  @Namespace var namespace
+
+  return CartView(
+    namespace: namespace,
+    selectedProduct: .constant(nil)
+  )
+  .environmentObject(CartStore())
 }

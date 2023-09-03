@@ -6,13 +6,19 @@ import TheStoreKit
 struct CartItemView: View {
   @EnvironmentObject var cartStore: CartStore
 
+  let namespace: Namespace.ID
   let product: Product
+  let onImageTapped: () -> Void
 
   let numberFormatter: NumberFormatter = .currency
 
   var body: some View {
     HStack(alignment: .top, spacing: 18) {
       DynamicImage(imageType: product.image)
+        .matchedGeometryEffect(
+          id: MatchedGeometry.image(id: product.id),
+          in: namespace
+        )
         .offset(y: 2)
         .frame(width: 80)
         .background(
@@ -25,7 +31,14 @@ struct CartItemView: View {
               )
             )
             .rotationEffect(.degrees(-7))
+            .matchedGeometryEffect(
+              id: MatchedGeometry.background(id: product.id),
+              in: namespace
+            )
             .padding(12)
+        )
+        .onTapGesture(
+          perform: onImageTapped
         )
 
       VStack(alignment: .leading, spacing: 8) {
@@ -54,7 +67,11 @@ struct CartItemView: View {
 }
 
 #Preview {
-  CartItemView(
-    product: Product.mock[0]
+  @Namespace var namespace
+
+  return CartItemView(
+    namespace: namespace,
+    product: Product.mock[0],
+    onImageTapped: {}
   )
 }

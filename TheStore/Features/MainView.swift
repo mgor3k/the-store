@@ -17,8 +17,11 @@ struct MainView: View {
       )
       .tag(Tab.home)
 
-      CartView()
-        .tag(Tab.cart)
+      CartView(
+        namespace: namespace,
+        selectedProduct: $selectedProduct
+      )
+      .tag(Tab.cart)
 
       FavoriteView()
         .tag(Tab.favorite)
