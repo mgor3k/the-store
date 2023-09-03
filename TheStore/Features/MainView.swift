@@ -5,6 +5,7 @@ import TheStoreKit
 
 struct MainView: View {
   @Namespace var namespace
+  @EnvironmentObject var notifications: NotificationManager
 
   @State var selectedTab: Tab = .home
   @State var selectedProduct: Product?
@@ -53,10 +54,20 @@ struct MainView: View {
       .snappy.speed(1.35),
       value: selectedProduct
     )
+    .overlay(alignment: .top) {
+      if let currentMessage = notifications.currentMessage {
+        NotificationBar(
+          message: currentMessage
+        )
+      }
+    }
+    .animation(.bouncy, value: notifications.currentMessage)
   }
 }
 
 #Preview {
   MainView()
+    .environmentObject(CartStore())
     .environmentObject(ProductStore())
+    .environmentObject(NotificationManager())
 }

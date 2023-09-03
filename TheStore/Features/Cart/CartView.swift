@@ -5,6 +5,7 @@ import TheStoreKit
 
 struct CartView: View {
   @EnvironmentObject var cartStore: CartStore
+  @EnvironmentObject var notifications: NotificationManager
 
   let namespace: Namespace.ID
   @Binding var selectedProduct: Product?
@@ -62,6 +63,7 @@ struct CartView: View {
     // TODO: Add loader
     Task {
       await cartStore.checkout()
+      notifications.showMessage("Successfully bought stuff!")
     }
   }
 }
@@ -74,4 +76,5 @@ struct CartView: View {
     selectedProduct: .constant(nil)
   )
   .environmentObject(CartStore())
+  .environmentObject(NotificationManager())
 }

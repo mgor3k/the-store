@@ -12,6 +12,7 @@ struct TheStoreApp: App {
         .environmentObject(ProductStore())
         .environmentObject(CartStore())
         .environmentObject(ReviewStore())
+        .environmentObject(NotificationManager())
     }
   }
 }
