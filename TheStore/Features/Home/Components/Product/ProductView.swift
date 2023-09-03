@@ -40,7 +40,7 @@ struct ProductView: View {
         .overlay {
           DynamicImage(imageType: product.image)
             .matchedGeometryEffect(
-              id: MatchedGeometry.image(id: product.id),
+              id: MatchedGeometry.Home.image(id: product.id),
               in: namespace
             )
             .offset(x: 16, y: 12)
@@ -97,8 +97,9 @@ struct ProductView: View {
             )
           )
           .matchedGeometryEffect(
-            id: MatchedGeometry.background(id: product.id),
-            in: namespace)
+            id: MatchedGeometry.Home.background(id: product.id),
+            in: namespace
+          )
       )
       .overlay(alignment: .topLeading) {
         LikeButton(product: product)

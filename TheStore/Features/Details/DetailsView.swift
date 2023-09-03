@@ -30,7 +30,11 @@ struct DetailsView: View {
           maxHeight: 250
         )
         .matchedGeometryEffect(
-          id: MatchedGeometry.image(id: product.id),
+          id: MatchedGeometry.Home.image(id: product.id),
+          in: namespace
+        )
+        .matchedGeometryEffect(
+          id: MatchedGeometry.Cart.image(id: product.id),
           in: namespace
         )
         .padding()
@@ -44,7 +48,11 @@ struct DetailsView: View {
               )
             )
             .matchedGeometryEffect(
-              id: MatchedGeometry.background(id: product.id),
+              id: MatchedGeometry.Home.background(id: product.id),
+              in: namespace
+            )
+            .matchedGeometryEffect(
+              id: MatchedGeometry.Cart.background(id: product.id),
               in: namespace
             )
         )

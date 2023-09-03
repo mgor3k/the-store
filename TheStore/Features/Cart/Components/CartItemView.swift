@@ -16,7 +16,7 @@ struct CartItemView: View {
     HStack(alignment: .top, spacing: 18) {
       DynamicImage(imageType: product.image)
         .matchedGeometryEffect(
-          id: MatchedGeometry.image(id: product.id),
+          id: MatchedGeometry.Cart.image(id: product.id),
           in: namespace
         )
         .offset(y: 2)
@@ -32,7 +32,7 @@ struct CartItemView: View {
             )
             .rotationEffect(.degrees(-7))
             .matchedGeometryEffect(
-              id: MatchedGeometry.background(id: product.id),
+              id: MatchedGeometry.Cart.background(id: product.id),
               in: namespace
             )
             .padding(12)

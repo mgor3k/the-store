@@ -3,11 +3,23 @@
 import Foundation
 
 enum MatchedGeometry {
-  static func image(id: String) -> String {
-    "image+\(id)"
+  enum Home {
+    static func image(id: String) -> String {
+      "image+home+\(id)"
+    }
+
+    static func background(id: String) -> String {
+      "background+home+\(id)"
+    }
   }
 
-  static func background(id: String) -> String {
-    "background+\(id)"
+  enum Cart {
+    static func image(id: String) -> String {
+      "image+cart+\(id)"
+    }
+
+    static func background(id: String) -> String {
+      "background+cart+\(id)"
+    }
   }
 }
