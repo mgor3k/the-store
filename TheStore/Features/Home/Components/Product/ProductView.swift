@@ -74,7 +74,7 @@ struct ProductView: View {
             Spacer()
 
             AnimatableButton(
-              title: "Buy",
+              title: "Add",
               action: onBuyTapped
             )
           }

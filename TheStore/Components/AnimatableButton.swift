@@ -11,8 +11,10 @@ struct AnimatableButton: View {
   var body: some View {
     Button(action: onAction) {
       ZStack {
-        Text(title)
-          .opacity(isAnimating ? 0 : 1)
+        if !isAnimating {
+          Text(title)
+            .transition(.scale)
+        }
 
         if isAnimating {
           Text("✓")
