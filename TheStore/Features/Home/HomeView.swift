@@ -14,6 +14,13 @@ struct HomeView: View {
   let namespace: Namespace.ID
   @Binding var selectedProduct: Product?
 
+  private var products: [Product] {
+    store.filteredProducts(
+      category: selectedCategory,
+      searchPhrase: searchPhrase
+    )
+  }
+
   var body: some View {
     ScrollView {
       VStack(spacing: 24) {
@@ -27,7 +34,7 @@ struct HomeView: View {
 
         LazyVStack(spacing: 24, pinnedViews: [.sectionHeaders]) {
           Section {
-            ForEach(products(for: selectedCategory)) { product in
+            ForEach(products) { product in
               ProductView(
                 namespace: namespace,
                 product: product,
@@ -50,16 +57,6 @@ struct HomeView: View {
       .animation(.snappy, value: selectedCategory)
     }
     .padding(.top)
-  }
-
-  func products(for category: TheStoreKit.ProductCategory) -> [Product] {
-    // TODO: Temp
-    switch category {
-    case .shoes:
-      return [store.products[0], store.products[3]]
-    default:
-      return store.products
-    }
   }
 
   var categoriesMenu: some View {

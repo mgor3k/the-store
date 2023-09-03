@@ -23,6 +23,19 @@ public final class ProductStore: ObservableObject {
     (products.firstIndex(where: { $0.id == product.id }) ?? -1) == products.count - 1
   }
 
+  public func filteredProducts(
+    category: ProductCategory,
+    searchPhrase: String
+  ) -> [Product] {
+    // Temporary
+    switch category {
+    case .shoes:
+      return [products[0], products[3]]
+    default:
+      return products
+    }
+  }
+
   public func toggleLike(_ product: Product) {
     guard let index = products.firstIndex(where: { $0.id == product.id }) else { return }
 
