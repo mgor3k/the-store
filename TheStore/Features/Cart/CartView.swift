@@ -9,6 +9,10 @@ struct CartView: View {
   let namespace: Namespace.ID
   @Binding var selectedProduct: Product?
 
+  var hasItems: Bool {
+    cartStore.items.count > 0
+  }
+
   var body: some View {
     VStack {
       Text("Cart")
@@ -28,17 +32,27 @@ struct CartView: View {
         .transition(.slide)
       }
 
+      if !hasItems {
+        ContentUnavailableView(
+          "Your cart is empty",
+          systemImage: "cart"
+        )
+        .foregroundStyle(.orange)
+      }
+
       Spacer()
 
     }
     .animation(.snappy, value: cartStore.items.keys)
     .overlay(alignment: .bottom) {
-      CartSummaryView(
-        summary: cartStore.summary,
-        onCheckout: checkout
-      )
-      .padding()
-      .padding(.bottom, 8)
+      if hasItems {
+        CartSummaryView(
+          summary: cartStore.summary,
+          onCheckout: checkout
+        )
+        .padding()
+        .padding(.bottom, 8)
+      }
     }
     .padding(.vertical)
     .pageHorizontalPadding()
