@@ -8,15 +8,9 @@ public struct CartProvider {
 
 public extension CartProvider {
   static var inMemory: Self {
-    var products: [Product] = Product.mock
-    var cart: [Product: Int] = [
-      products[0]: 1,
-      products[1]: 2
-    ]
-    
-    return .init(
+    .init(
       fetchCart: {
-        cart
+        [:]
       }
     )
   }
