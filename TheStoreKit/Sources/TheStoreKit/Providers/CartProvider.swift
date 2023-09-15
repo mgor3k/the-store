@@ -15,3 +15,13 @@ public extension CartProvider {
     )
   }
 }
+
+public extension CartProvider {
+  static func server(urlSession: URLSession = .shared) -> Self {
+    .init(
+      fetchCart: {
+        [:]
+      }
+    )
+  }
+}

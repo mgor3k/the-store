@@ -15,3 +15,13 @@ public extension ReviewProvider {
     )
   }
 }
+
+public extension ReviewProvider {
+  static func server(urlSession: URLSession = .shared) -> Self {
+    .init(
+      fetchReviews: { id in
+        []
+      }
+    )
+  }
+}

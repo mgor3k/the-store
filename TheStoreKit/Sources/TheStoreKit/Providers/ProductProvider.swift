@@ -39,3 +39,19 @@ public extension ProductProvider {
     )
   }
 }
+
+public extension ProductProvider {
+  static func server(urlSession: URLSession = .shared) -> Self {
+    .init(
+      fetchProducts: {
+        []
+      },
+      like: { product in
+        product
+      },
+      unlike: { product in
+        product
+      }
+    )
+  }
+}
