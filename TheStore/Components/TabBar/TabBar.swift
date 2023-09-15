@@ -81,9 +81,5 @@ struct TabBar: View {
   TabBar(
     selectedTab: .constant(.home)
   )
-  .environmentObject(
-    CartStore(
-      items: [.mock[0]: 1]
-    )
-  )
+  .environmentObject(CartStore())
 }

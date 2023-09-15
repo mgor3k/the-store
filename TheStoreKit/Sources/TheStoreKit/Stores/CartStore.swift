@@ -3,6 +3,8 @@
 import Foundation
 
 public final class CartStore: ObservableObject {
+  private let provider: CartProvider
+
   @Published public var items: [Product: Int] = [:]
 
   public var summary: CartSummary {
@@ -23,8 +25,18 @@ public final class CartStore: ObservableObject {
     )
   }
 
-  public init(items: [Product: Int] = [:]) {
-    self.items = items
+  public init(provider: CartProvider = .inMemory) {
+    self.provider = provider
+  }
+
+  public func loadCart() {
+    Task {
+      do {
+        items = try await provider.fetchCart()
+      } catch {
+        // Do nothing
+      }
+    }
   }
 
   public func add(_ product: Product) {

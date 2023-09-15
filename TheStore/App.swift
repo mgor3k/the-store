@@ -5,14 +5,36 @@ import TheStoreKit
 
 @main
 struct TheStoreApp: App {
+  let productStore: ProductStore
+  let cartStore: CartStore
+  let reviewStore: ReviewStore
+
+  let notificationManager = NotificationManager()
+
+  init() {
+    productStore = ProductStore(
+      provider: .inMemory
+    )
+
+    cartStore = CartStore(
+      provider: .inMemory
+    )
+
+    reviewStore = ReviewStore(
+      provider: .inMemory
+    )
+
+    cartStore.loadCart()
+  }
+
   var body: some Scene {
     WindowGroup {
       MainView()
         .tint(.orange)
-        .environmentObject(ProductStore())
-        .environmentObject(CartStore())
-        .environmentObject(ReviewStore())
-        .environmentObject(NotificationManager())
+        .environmentObject(productStore)
+        .environmentObject(cartStore)
+        .environmentObject(reviewStore)
+        .environmentObject(notificationManager)
     }
   }
 }
