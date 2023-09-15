@@ -24,7 +24,7 @@ struct TheStoreApp: App {
       provider: .inMemory
     )
 
-    cartStore.loadCart()
+    loadInitialData()
   }
 
   var body: some Scene {
@@ -35,6 +35,18 @@ struct TheStoreApp: App {
         .environmentObject(cartStore)
         .environmentObject(reviewStore)
         .environmentObject(notificationManager)
+    }
+  }
+
+  private func loadInitialData() {
+    Task {
+      do {
+        // Make it parallel
+        try await productStore.loadProducts()
+        try await cartStore.loadCart()
+      } catch {
+        //
+      }
     }
   }
 }

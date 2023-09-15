@@ -3,6 +3,7 @@
 import Foundation
 
 public struct ProductProvider {
+  let fetchProducts: () async throws -> [Product]
   let like: (Product) async throws -> Product
   let unlike: (Product) async throws -> Product
 }
@@ -10,6 +11,9 @@ public struct ProductProvider {
 public extension ProductProvider {
   static var inMemory: Self {
     return .init(
+      fetchProducts: {
+        Product.mock
+      },
       like: { product in
         Product(
           id: product.id,

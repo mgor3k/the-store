@@ -29,14 +29,8 @@ public final class CartStore: ObservableObject {
     self.provider = provider
   }
 
-  public func loadCart() {
-    Task {
-      do {
-        items = try await provider.fetchCart()
-      } catch {
-        // Do nothing
-      }
-    }
+  public func loadCart() async throws {
+    items = try await provider.fetchCart()
   }
 
   public func add(_ product: Product) {

@@ -3,16 +3,18 @@
 import Foundation
 
 public final class ProductStore: ObservableObject {
-  @Published public var products: [Product]
+  @Published public var products: [Product] = []
 
   private let provider: ProductProvider
 
   public init(
-    products: [Product] = Product.mock,
     provider: ProductProvider = .inMemory
   ) {
-    self.products = products
     self.provider = provider
+  }
+
+  public func loadProducts() async throws {
+    products = try await provider.fetchProducts()
   }
 
   public func isFirst(_ product: Product) -> Bool {
