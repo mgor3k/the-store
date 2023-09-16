@@ -13,9 +13,7 @@ extension DetailsView {
 
     var body: some View {
       VStack(alignment: .leading) {
-        if !reviews.isEmpty {
-          Text("Reviews")
-        }
+        Text("Reviews")
 
         HStack {
           let model = Array(zip(reviews.indices, reviews))
