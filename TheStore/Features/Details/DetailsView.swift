@@ -110,7 +110,7 @@ struct DetailsView: View {
               .padding(.bottom, 12)
 
             Text("Your workhorse with wings returns. The Nike Air Zoom Pegasus 18 continues...")
-              .padding(.horizontal, 24)
+              .pageHorizontalPadding()
               .foregroundStyle(.gray)
               .font(.caption)
               .multilineTextAlignment(.leading)
