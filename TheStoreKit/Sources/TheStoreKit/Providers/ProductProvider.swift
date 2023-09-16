@@ -42,7 +42,7 @@ public extension ProductProvider {
 
 public extension ProductProvider {
   static func server(urlSession: URLSession = .shared) -> Self {
-    // TODO: Add simple networking layer
+    // TODO: Add simple networking layer and cleanup
     return .init(
       fetchProducts: {
         let url = URL(string: "http://127.0.0.1:8080/products")!
@@ -52,10 +52,22 @@ public extension ProductProvider {
         return decoded
       },
       like: { product in
-        product
+        let id = product.id
+        let url = URL(string: "http://127.0.0.1:8080/products/\(id)/like")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        let (data, _) = try await urlSession.data(for: request)
+        let decoded = try JSONDecoder().decode(Product.self, from: data)
+        return decoded
       },
       unlike: { product in
-        product
+        let id = product.id
+        let url = URL(string: "http://127.0.0.1:8080/products/\(id)/dislike")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        let (data, _) = try await urlSession.data(for: request)
+        let decoded = try JSONDecoder().decode(Product.self, from: data)
+        return decoded
       }
     )
   }
