@@ -6,7 +6,7 @@ import TheStoreKit
 struct DetailsView: View {
   @State private var hasAppeared = false
 
-  @State var selectedSize: ProductSize?
+  @State var selectedSize: Int?
   @EnvironmentObject var cart: CartStore
 
   let namespace: Namespace.ID
@@ -98,8 +98,8 @@ struct DetailsView: View {
               .pageHorizontalPadding()
 
             HorizontalScrollMenu(
-              items: product.availableSizes,
-              title: \.title,
+              items: Array(product.availableSizes),
+              title: \.stringValue,
               selectedItem: $selectedSize
             )
             .frame(height: 50)
@@ -147,6 +147,12 @@ struct DetailsView: View {
 
       hasAppeared = true
     }
+  }
+}
+
+private extension Int {
+  var stringValue: String {
+    String(self)
   }
 }
 

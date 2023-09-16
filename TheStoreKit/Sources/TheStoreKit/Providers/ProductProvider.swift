@@ -42,9 +42,14 @@ public extension ProductProvider {
 
 public extension ProductProvider {
   static func server(urlSession: URLSession = .shared) -> Self {
-    .init(
+    // TODO: Add simple networking layer
+    return .init(
       fetchProducts: {
-        []
+        let url = URL(string: "http://127.0.0.1:8080/products")!
+        let request = URLRequest(url: url)
+        let (data, _) = try await urlSession.data(for: request)
+        let decoded = try JSONDecoder().decode([Product].self, from: data)
+        return decoded
       },
       like: { product in
         product

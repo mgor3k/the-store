@@ -13,7 +13,7 @@ struct TheStoreApp: App {
 
   init() {
     productStore = ProductStore(
-      provider: .inMemory
+      provider: .server()
     )
 
     cartStore = CartStore(
@@ -45,7 +45,7 @@ struct TheStoreApp: App {
         try await productStore.loadProducts()
         try await cartStore.loadCart()
       } catch {
-        //
+        print("### \(error.localizedDescription)")
       }
     }
   }

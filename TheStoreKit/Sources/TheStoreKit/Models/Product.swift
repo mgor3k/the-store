@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct Product: Identifiable, Equatable, Hashable {
+public struct Product: Identifiable, Equatable, Hashable, Codable {
   public let id: String
   public let name: String
 
@@ -11,7 +11,7 @@ public struct Product: Identifiable, Equatable, Hashable {
   public let hexColor: String
   public let image: ImageType
 
-  public let availableSizes: [ProductSize]
+  public let availableSizes: Set<Int>
 
   public let isLiked: Bool
 }
