@@ -13,8 +13,22 @@ struct DynamicImage: View {
         .resizable()
         .scaledToFit()
     case .remote(let url):
-      AsyncImage(url: url)
-        .scaledToFit()
+      AsyncImage(url: url) { phase in
+        switch phase {
+        case .empty:
+          ProgressView()
+            .progressViewStyle(.circular)
+            .foregroundStyle(.gray)
+        case .success(let image):
+          image
+            .resizable()
+            .scaledToFit()
+        case .failure:
+          EmptyView()
+        @unknown default:
+          EmptyView()
+        }
+      }
     }
   }
 }
