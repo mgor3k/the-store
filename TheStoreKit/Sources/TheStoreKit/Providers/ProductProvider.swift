@@ -41,33 +41,24 @@ public extension ProductProvider {
 }
 
 public extension ProductProvider {
-  static func server(urlSession: URLSession = .shared) -> Self {
-    // TODO: Add simple networking layer and cleanup
-    return .init(
+  static func server(network: NetworkClient = .live) -> Self {
+    .init(
       fetchProducts: {
-        let url = URL(string: "http://127.0.0.1:8080/products")!
-        let request = URLRequest(url: url)
-        let (data, _) = try await urlSession.data(for: request)
-        let decoded = try JSONDecoder().decode([Product].self, from: data)
-        return decoded
+        try await network.data(
+          for: .products
+        )
       },
       like: { product in
-        let id = product.id
-        let url = URL(string: "http://127.0.0.1:8080/products/\(id)/like")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
-        let (data, _) = try await urlSession.data(for: request)
-        let decoded = try JSONDecoder().decode(Product.self, from: data)
-        return decoded
+        try await network.data(
+          for: .like(id: product.id),
+          method: .put
+        )
       },
       unlike: { product in
-        let id = product.id
-        let url = URL(string: "http://127.0.0.1:8080/products/\(id)/dislike")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
-        let (data, _) = try await urlSession.data(for: request)
-        let decoded = try JSONDecoder().decode(Product.self, from: data)
-        return decoded
+        try await network.data(
+          for: .dislike(id: product.id),
+          method: .put
+        )
       }
     )
   }
