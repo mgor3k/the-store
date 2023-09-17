@@ -29,10 +29,10 @@ public final class ProductStore: ObservableObject {
     category: ProductCategory,
     searchPhrase: String
   ) -> [Product] {
-    // Temporary
+    // Just for demo purpose
     switch category {
     case .shoes:
-      return [products[0], products[3]]
+      return [products.last].compactMap { $0 }
     default:
       return products
     }
