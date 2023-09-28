@@ -4,6 +4,7 @@ import Foundation
 
 public struct CartProvider {
   let fetchCart: () async throws -> [Product: Int]
+  let updateCart: (String, Int) async throws -> Void
 }
 
 public extension CartProvider {
@@ -11,6 +12,9 @@ public extension CartProvider {
     .init(
       fetchCart: {
         cart
+      },
+      updateCart: { _, _ in
+        // Ignore
       }
     )
   }
@@ -34,6 +38,9 @@ public extension CartProvider {
         }
 
         return cart
+      },
+      updateCart: { id, quantity in
+        try await network.request(for: .updateCart(id: id, quantity: quantity), method: .post)
       }
     )
   }

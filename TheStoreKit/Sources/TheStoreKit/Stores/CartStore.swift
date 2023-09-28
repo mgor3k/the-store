@@ -34,12 +34,21 @@ public final class CartStore: ObservableObject {
   }
 
   public func add(_ product: Product) {
-    guard let count = items[product] else {
-      items[product] = 1
-      return
+    let newCount: Int = if let count = items[product] {
+      count + 1
+    } else {
+      1
     }
 
-    items[product] = count + 1
+    items[product] = newCount
+
+    Task {
+      do {
+        try await provider.updateCart(product.id, newCount)
+      } catch {
+        // TODO: Error handling
+      }
+    }
   }
 
   public func quantity(for product: Product) -> Int {
@@ -49,7 +58,17 @@ public final class CartStore: ObservableObject {
   public func incrementQuantity(for product: Product) {
     guard let count = items[product] else { return }
 
-    items[product] = count + 1
+    let newCount = count + 1
+
+    items[product] = newCount
+
+    Task {
+      do {
+        try await provider.updateCart(product.id, newCount)
+      } catch {
+        // TODO: Error handling
+      }
+    }
   }
 
   public func decrementQuantity(for product: Product) {
@@ -58,6 +77,14 @@ public final class CartStore: ObservableObject {
     let newCount = count - 1
 
     items[product] = newCount == 0 ? nil : newCount
+
+    Task {
+      do {
+        try await provider.updateCart(product.id, newCount)
+      } catch {
+        // TODO: Error handling
+      }
+    }
   }
 
   public func checkout() async {
