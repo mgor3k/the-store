@@ -25,7 +25,7 @@ public final class CartStore: ObservableObject {
     )
   }
 
-  public init(provider: CartProvider = .inMemory) {
+  public init(provider: CartProvider = .inMemory()) {
     self.provider = provider
   }
 

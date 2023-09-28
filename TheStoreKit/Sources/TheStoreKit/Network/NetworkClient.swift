@@ -12,6 +12,7 @@ public struct NetworkClient {
     case products
     case like(id: String)
     case dislike(id: String)
+    case cart
 
     var path: String {
       switch self {
@@ -21,6 +22,8 @@ public struct NetworkClient {
         return "/products/\(id)/like"
       case .dislike(let id):
         return "/products/\(id)/dislike"
+      case .cart:
+        return "/cart/"
       }
     }
   }

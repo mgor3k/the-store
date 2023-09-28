@@ -17,7 +17,7 @@ struct TheStoreApp: App {
     )
 
     cartStore = CartStore(
-      provider: .inMemory
+      provider: .server()
     )
 
     reviewStore = ReviewStore(
