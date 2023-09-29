@@ -12,13 +12,17 @@ struct TheStoreApp: App {
   let notificationManager = NotificationManager()
 
   init() {
-    productStore = ProductStore(
-      provider: .server()
-    )
+    #if LIVE
+    productStore = ProductStore(provider: .server())
+    #else
+    productStore = ProductStore(provider: .inMemory)
+    #endif
 
-    cartStore = CartStore(
-      provider: .server()
-    )
+    #if LIVE
+    cartStore = CartStore(provider: .server())
+    #else
+    cartStore = CartStore(provider: .inMemory())
+    #endif
 
     reviewStore = ReviewStore(
       provider: .inMemory
